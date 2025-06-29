@@ -1,0 +1,65 @@
+{
+  "Header": {
+    "home": "الرئيسية",
+    "features": "الميزات",
+    "pricing": "الأسعار",
+    "contact": "اتصل بنا",
+    "getStarted": "ابدأ الآن"
+  },
+  "Hero": {
+    "title": "مُجيب… صوتك الأول مع العميل، وانطباعك اللي ما ينسى. يرد، يفهم، ويخدم… قبل لا ترد أنت",
+    "getStarted": "ابدأ الآن",
+    "listen": "استمع الان",
+    "dir": "rtl"
+  },
+  "Features": {
+    "title": "مميزاتنا الجوهرية",
+    "feature1": {
+      "description": "صوت بشري مخصص لكل منشأة أو علامة تجارية."
+    },
+    "feature2": {
+      "description": "تكامل مباشر مع أنظمة التذاكر و CRM."
+    },
+    "feature3": {
+      "description": "تحليل المكالمة وتقديم ملخص دقيق للطلب."
+    },
+    "feature4": {
+      "description": "تخصيص سيناريوهات متنوعة حسب كل جهة."
+    },
+    "feature5": {
+      "description": "إرسال الطلبات أو التنبيهات مباشرة لفريق العمل."
+    },
+    "feature6": {
+      "description": "دعم للغة العربية واللهجات المحلية"
+    }
+  },
+  "Footer": {
+    "facebookLink": "https://facebook.com",
+    "twitterLink": "https://twitter.com",
+    "linkedinLink": "https://linkedin.com",
+    "whatsappLink": "https://whatsapp.com",
+    "about": "من نحن",
+    "services": "خدماتنا",
+    "contact": "اتصل بنا",
+    "phone": "رقم الهاتف: 0000000000",
+    "email": "البريد الإلكتروني: info@example.com",
+    "address": "مكان ما في العالم",
+    "copyright": "© {year} جميع الحقوق محفوظة"
+  },
+  "Login": {
+    "title": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "submit": "تسجيل الدخول",
+    "registerLink": "ليس لديك حساب؟ ",
+    "register": "سجل الآن",
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+      "passwordMin": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+    }
+  },
+  "Home": {
+    "dir": "rtl"
+  }
+}

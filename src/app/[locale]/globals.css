@@ -1,5 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource/tajawal/400.css";
+@import "@fontsource/tajawal/700.css";
+
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -44,6 +49,8 @@
 }
 
 :root {
+  --primary-color: #10a5b1;
+  --scound-color: #3d4d58;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -122,5 +129,14 @@
 }
 
 .container {
-  padding: 0 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.arabic_font {
+  font-family: "tajawal", sans-serif;
+}
+
+.english_font {
+  font-family: "Poppins", sans-serif;
 }

@@ -1,0 +1,65 @@
+{
+  "Header": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "Hero": {
+    "title": "Mojeeb ai Your first voice with the customer, and your unforgettable impression. He responds, understands, and serves...Before you don't respond",
+    "getStarted": "Get Started",
+    "listen": "Listen Now",
+    "dir": "ltr"
+  },
+  "Features": {
+    "title": "Our Features",
+    "feature1": {
+      "description": "Custom human-like voice for each facility or brand."
+    },
+    "feature2": {
+      "description": "Direct integration with ticketing systems and CRM."
+    },
+    "feature3": {
+      "description": "Call analysis and providing accurate order summaries."
+    },
+    "feature4": {
+      "description": "Customization of various scenarios for each entity."
+    },
+    "feature5": {
+      "description": "Directly send orders or alerts to the work team."
+    },
+    "feature6": {
+      "description": "Support for Arabic language and local dialects"
+    }
+  },
+  "Footer": {
+    "facebookLink": "https://facebook.com",
+    "twitterLink": "https://twitter.com",
+    "linkedinLink": "https://linkedin.com",
+    "whatsappLink": "https://whatsapp.com",
+    "about": "About Us",
+    "services": "Our Services",
+    "contact": "Contact Us",
+    "phone": "Phone: 0000000000",
+    "email": "Email: info@example.com",
+    "address": "Somewhere in the World",
+    "copyright": "© {year} All rights reserved"
+  },
+  "Login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "registerLink": "Don't have an account? ",
+    "register": "Register now",
+    "validation": {
+      "required": "This field is required",
+      "emailInvalid": "Please enter a valid email",
+      "passwordMin": "Password must be at least 6 characters"
+    }
+  },
+  "Home": {
+    "dir": "ltr"
+  }
+}
