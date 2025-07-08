@@ -13,9 +13,9 @@ export default function SwitcherLang() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const switchLocale = (newLocale: string) => {
+  const switchLocale = async (newLocale: string) => {
     const pathWithoutLocale = pathname.replace(`/${locale}`, "");
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    await router.push(`/${newLocale}${pathWithoutLocale}`);
   };
 
   return (
@@ -26,13 +26,13 @@ export default function SwitcherLang() {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>language</SelectLabel>
-          <SelectItem value="en" onClick={() => switchLocale("en")}>
+          <SelectItem value="en" onClick={async () => await switchLocale("en")}>
             <div className="flex items-center gap-2">
               <span>🇬🇧</span>
               <span>English</span>
             </div>
           </SelectItem>
-          <SelectItem value="ar" onClick={() => switchLocale("ar")}>
+          <SelectItem value="ar" onClick={async () => await switchLocale("ar")}>
             <div className="flex items-center gap-2">
               <span>🇸🇦</span>
               <span>العربية</span>

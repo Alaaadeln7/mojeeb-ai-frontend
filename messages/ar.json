@@ -59,6 +59,358 @@
       "passwordMin": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
     }
   },
+  "SectionCards": {
+    "cards": {
+      "totalUser": {
+        "title": "إجمالي المستخدمين",
+        "value": "$100",
+        "trend": "+12.5%",
+        "footerTitle": "في ارتفاع هذا الشهر",
+        "footerDescription": "الزوار خلال الستة أشهر الماضية"
+      },
+      "totalCalls": {
+        "title": "إجمالي المكالمات",
+        "value": "1,234",
+        "trend": "-20%",
+        "footerTitle": "انخفاض 20% هذه الفترة",
+        "footerDescription": "تحتاج عملية الاكتساب إلى الاهتمام"
+      },
+      "totalSubscriptions": {
+        "title": "إجمالي الاشتراكات",
+        "value": "45,678",
+        "trend": "+12.5%",
+        "footerTitle": "احتفاظ قوي بالمستخدمين",
+        "footerDescription": "تجاوز المشاركة الأهداف"
+      },
+      "expiringSoon": {
+        "title": "تنتهي قريبًا",
+        "value": "4.5%",
+        "trend": "+4.5%",
+        "footerTitle": "زيادة ثابتة في الأداء",
+        "footerDescription": "يلبي توقعات النمو"
+      }
+    }
+  },
+  "AdminSidebar": {
+    "brandName": "شركة أكمي",
+    "navItems": {
+      "dashboard": "لوحة التحكم",
+      "clients": "العملاء",
+      "analytics": "التحليلات",
+      "usersRoles": "المستخدمين والأدوار",
+      "subscriptions": "الاشتراكات",
+      "settings": "الإعدادات",
+      "plans": "الخطط"
+    },
+    "user": {
+      "logout": "تسجيل الخروج"
+    }
+  },
+  "DataTable": {
+    "columns": {
+      "header": "العنوان",
+      "type": "نوع القسم",
+      "status": "الحالة",
+      "target": "الهدف",
+      "limit": "الحد",
+      "reviewer": "المُراجع",
+      "actions": "الإجراءات",
+      "selectAll": "تحديد الكل",
+      "selectRow": "تحديد الصف",
+      "drag": "اسحب لإعادة الترتيب"
+    },
+    "tabs": {
+      "outline": "المخطط",
+      "pastPerformance": "الأداء السابق",
+      "keyPersonnel": "الأفراد الرئيسيون",
+      "focusDocuments": "الوثائق المركزة"
+    },
+    "pagination": {
+      "rowsPerPage": "صفوف لكل صفحة",
+      "pageOf": "الصفحة {current} من {total}",
+      "selectedCount": "{selected} من {total} صفوف محددة",
+      "firstPage": "الذهاب إلى الصفحة الأولى",
+      "previousPage": "الصفحة السابقة",
+      "nextPage": "الصفحة التالية",
+      "lastPage": "الذهاب إلى الصفحة الأخيرة"
+    },
+    "buttons": {
+      "customizeColumns": "تخصيص الأعمدة",
+      "addSection": "إضافة قسم",
+      "submit": "إرسال",
+      "done": "تم"
+    },
+    "dropdown": {
+      "edit": "تعديل",
+      "copy": "إنشاء نسخة",
+      "favorite": "المفضلة",
+      "delete": "حذف"
+    },
+    "status": {
+      "done": "مكتمل",
+      "inProgress": "قيد التنفيذ",
+      "notStarted": "لم يبدأ بعد"
+    },
+    "sectionTypes": {
+      "toc": "جدول المحتويات",
+      "executiveSummary": "ملخص تنفيذي",
+      "technicalApproach": "نهج فني",
+      "design": "تصميم",
+      "capabilities": "القدرات",
+      "focusDocuments": "وثائق مركزة",
+      "narrative": "رواية",
+      "coverPage": "صفحة الغلاف"
+    },
+    "drawer": {
+      "visitorsDescription": "عرض إجمالي الزوار خلال آخر 6 أشهر",
+      "trendingUp": "في ارتفاع بنسبة {percent} هذا الشهر",
+      "visitorsDetail": "عرض إجمالي الزوار خلال آخر 6 أشهر. هذا مجرد نص عشوائي لاختبار التنسيق. يجب أن يمتد على عدة أسطر ويتكيف مع المساحة."
+    }
+  },
+  "ClientsHeader": {
+    "title": "العملاء",
+    "buttons": {
+      "addClient": {
+        "label": "إضافة عميل",
+        "ariaLabel": "إضافة عميل جديد"
+      },
+      "search": "بحث"
+    },
+    "search": {
+      "placeholder": "ابحث عن العملاء بالاسم، البريد الإلكتروني أو القطاع",
+      "ariaLabel": "بحث العملاء",
+      "status": {
+        "searching": "جاري البحث...",
+        "resultsFound": "تم العثور على {count} عميل",
+        "noResults": "لا توجد عملاء تطابق بحثك"
+      }
+    },
+    "filter": {
+      "placeholder": "تصفية حسب الحالة",
+      "ariaLabel": "تصفية حسب الحالة",
+      "options": {
+        "all": "جميع الحالات",
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "trial": "تجريبي"
+      }
+    },
+    "errors": {
+      "searchTooLong": "استعلام البحث طويل جداً"
+    }
+  },
+  "CreateNewClientModal": {
+    "title": "إنشاء عميل جديد",
+    "buttons": {
+      "cancel": "إلغاء",
+      "create": "إنشاء العميل"
+    },
+    "form": {
+      "name": {
+        "label": "اسم العميل",
+        "placeholder": "اسم الشركة"
+      },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "contact@company.com"
+      },
+      "password": {
+        "label": "كلمة المرور",
+        "placeholder": "كلمة مرور الشركة"
+      },
+      "phone": {
+        "label": "رقم الهاتف",
+        "placeholder": "+1234567890"
+      },
+      "address": {
+        "label": "العنوان",
+        "placeholder": "123 شارع الأعمال، المدينة"
+      },
+      "website": {
+        "label": "الموقع الإلكتروني",
+        "placeholder": "https://company.com"
+      },
+      "industry": {
+        "label": "الصناعة",
+        "placeholder": "اختر الصناعة"
+      },
+      "plan": {
+        "label": "الخطة",
+        "placeholder": "اختر الخطة"
+      },
+      "size": {
+        "label": "حجم الشركة",
+        "placeholder": "اختر الحجم",
+        "options": {
+          "small": "صغيرة (1-50)",
+          "medium": "متوسطة (51-200)",
+          "large": "كبيرة (201-1000)",
+          "enterprise": "مؤسسة (1000+)"
+        }
+      },
+      "commercialRegister": {
+        "label": "السجل التجاري",
+        "placeholder": "CR-123456"
+      },
+      "taxId": {
+        "label": "الرقم الضريبي",
+        "placeholder": "TAX-123-456"
+      },
+      "description": {
+        "label": "الوصف",
+        "placeholder": "وصف موجز للعميل"
+      }
+    },
+    "industries": {
+      "technology": "التكنولوجيا",
+      "finance": "المالية",
+      "healthcare": "الرعاية الصحية",
+      "education": "التعليم",
+      "retail": "التجزئة",
+      "manufacturing": "التصنيع",
+      "hospitality": "الضيافة",
+      "other": "أخرى"
+    },
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "invalidEmail": "يرجى إدخال بريد إلكتروني صالح",
+      "minLength": "يجب أن يكون على الأقل {min} أحرف",
+      "invalidUrl": "يرجى إدخال رابط صالح",
+      "invalidPhone": "يرجى إدخال رقم هاتف صالح"
+    }
+  },
+  "Analytics": {
+    "title": "التحليلات",
+    "datePicker": {
+      "label": "اختر التاريخ",
+      "today": "اليوم",
+      "thisWeek": "هذا الأسبوع",
+      "thisMonth": "هذا الشهر",
+      "customRange": "نطاق مخصص"
+    },
+    "Overview": {
+      "title": "نظرة عامة",
+      "changeFromLastPeriod": "من الفترة السابقة",
+      "metrics": {
+        "users": {
+          "title": "إجمالي المستخدمين"
+        },
+        "revenue": {
+          "title": "الإيرادات"
+        },
+        "sessions": {
+          "title": "الجلسات"
+        }
+      }
+    },
+    "CallsOverTime": {
+      "title": "المكالمات عبر الزمن",
+      "tooltipLabel": "مكالمات",
+      "days": {
+        "mon": "الإثنين",
+        "tue": "الثلاثاء",
+        "wed": "الأربعاء",
+        "thu": "الخميس",
+        "fri": "الجمعة",
+        "sat": "السبت",
+        "sun": "الأحد"
+      }
+    },
+    "TicketVolume": {
+      "title": "حجم التذاكر يومياً",
+      "tooltipLabel": "تذاكر",
+      "days": {
+        "mon": "الإثنين",
+        "tue": "الثلاثاء",
+        "wed": "الأربعاء",
+        "thu": "الخميس",
+        "fri": "الجمعة",
+        "sat": "السبت",
+        "sun": "الأحد"
+      }
+    },
+    "TopActiveClients": {
+      "title": "أفضل 5 عملاء نشطين",
+      "client": "العميل",
+      "calls": "المكالمات",
+      "clientName": "العميل {number}"
+    }
+  },
+  "UsersAndRoles": {
+    "title": "المستخدمون والأدوار",
+    "addUserButton": "إضافة مستخدم جديد",
+    "search": {
+      "placeholder": "ابحث عن المستخدمين بالاسم، البريد الإلكتروني أو الدور",
+      "button": "بحث"
+    }
+  },
+  "CreateUserModal": {
+    "title": "إنشاء مستخدم جديد",
+    "close": "إغلاق",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "form": {
+      "fullName": {
+        "label": "الاسم الكامل",
+        "placeholder": "اسمك الكامل"
+      },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "example@email.com"
+      },
+      "role": {
+        "label": "الدور",
+        "placeholder": "اختر دورًا",
+        "options": {
+          "admin": "مدير",
+          "client": "عميل"
+        }
+      },
+      "password": {
+        "label": "كلمة المرور",
+        "placeholder": "أدخل كلمة المرور"
+      },
+      "submit": {
+        "create": "إنشاء مستخدم",
+        "creating": "جاري الإنشاء..."
+      }
+    }
+  },
+  "UsersTable": {
+    "columns": {
+      "user": "المستخدم",
+      "role": "الدور",
+      "status": "الحالة",
+      "lastActive": "آخر نشاط",
+      "actions": "الإجراءات"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "resetPassword": "إعادة تعيين كلمة المرور",
+      "permissions": "الصلاحيات"
+    }
+  },
+  "Pagination": {
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية",
+    "pageNumber": "الصفحة {number}"
+  },
+  "Settings": {
+    "theme": {
+      "title": "المظهر",
+      "description": "اختر المظهر المفضل لديك"
+    }
+  },
+  "LanguageSettings": {
+    "title": "اختر لغتك",
+    "description": "اختر اللغة المفضلة لديك",
+    "systemLanguage": "لغة النظام الافتراضية",
+    "placeholder": "ما هي لغتك؟",
+    "languages": {
+      "arabic": "العربية",
+      "english": "الإنجليزية"
+    }
+  },
   "Home": {
     "dir": "rtl"
   }

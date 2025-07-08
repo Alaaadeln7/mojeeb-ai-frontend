@@ -59,6 +59,359 @@
       "passwordMin": "Password must be at least 6 characters"
     }
   },
+  "SectionCards": {
+    "cards": {
+      "totalUser": {
+        "title": "Total User",
+        "value": "$100",
+        "trend": "+12.5%",
+        "footerTitle": "Trending up this month",
+        "footerDescription": "Visitors for the last 6 months"
+      },
+      "totalCalls": {
+        "title": "Total Calls",
+        "value": "1,234",
+        "trend": "-20%",
+        "footerTitle": "Down 20% this period",
+        "footerDescription": "Acquisition needs attention"
+      },
+      "totalSubscriptions": {
+        "title": "Total Subscriptions",
+        "value": "45,678",
+        "trend": "+12.5%",
+        "footerTitle": "Strong user retention",
+        "footerDescription": "Engagement exceed targets"
+      },
+      "expiringSoon": {
+        "title": "Expiring soon",
+        "value": "4.5%",
+        "trend": "+4.5%",
+        "footerTitle": "Steady performance increase",
+        "footerDescription": "Meets growth projections"
+      }
+    }
+  },
+  "AdminSidebar": {
+    "brandName": "Acme Inc.",
+    "navItems": {
+      "dashboard": "Dashboard",
+      "clients": "Clients",
+      "analytics": "Analytics",
+      "usersRoles": "Users & Roles",
+      "subscriptions": "Subscriptions",
+      "settings": "Settings",
+      "plans": "Plans"
+    },
+    "user": {
+      "logout": "Log out"
+    }
+  },
+  "DataTable": {
+    "columns": {
+      "header": "Header",
+      "type": "Section Type",
+      "status": "Status",
+      "target": "Target",
+      "limit": "Limit",
+      "reviewer": "Reviewer",
+      "actions": "Actions",
+      "selectAll": "Select all",
+      "selectRow": "Select row",
+      "drag": "Drag to reorder"
+    },
+    "tabs": {
+      "outline": "Outline",
+      "pastPerformance": "Past Performance",
+      "keyPersonnel": "Key Personnel",
+      "focusDocuments": "Focus Documents"
+    },
+    "pagination": {
+      "rowsPerPage": "Rows per page",
+      "pageOf": "Page {current} of {total}",
+      "selectedCount": "{selected} of {total} row(s) selected",
+      "firstPage": "Go to first page",
+      "previousPage": "Go to previous page",
+      "nextPage": "Go to next page",
+      "lastPage": "Go to last page"
+    },
+    "buttons": {
+      "customizeColumns": "Customize Columns",
+      "addSection": "Add Section",
+      "submit": "Submit",
+      "done": "Done"
+    },
+    "dropdown": {
+      "edit": "Edit",
+      "copy": "Make a copy",
+      "favorite": "Favorite",
+      "delete": "Delete"
+    },
+    "status": {
+      "done": "Done",
+      "inProgress": "In Progress",
+      "notStarted": "Not Started"
+    },
+    "sectionTypes": {
+      "toc": "Table of Contents",
+      "executiveSummary": "Executive Summary",
+      "technicalApproach": "Technical Approach",
+      "design": "Design",
+      "capabilities": "Capabilities",
+      "focusDocuments": "Focus Documents",
+      "narrative": "Narrative",
+      "coverPage": "Cover Page"
+    },
+    "drawer": {
+      "visitorsDescription": "Showing total visitors for the last 6 months",
+      "trendingUp": "Trending up by {percent} this month",
+      "visitorsDetail": "Showing total visitors for the last 6 months. This is just some random text to test the layout. It spans multiple lines and should wrap around."
+    }
+  },
+
+  "ClientsHeader": {
+    "title": "Clients",
+    "buttons": {
+      "addClient": {
+        "label": "Add Client",
+        "ariaLabel": "Add new client"
+      },
+      "search": "Search"
+    },
+    "search": {
+      "placeholder": "Search clients by name, email, or sector",
+      "ariaLabel": "Search clients",
+      "status": {
+        "searching": "Searching...",
+        "resultsFound": "Found {count} clients",
+        "noResults": "No clients found matching your search"
+      }
+    },
+    "filter": {
+      "placeholder": "Filter by status",
+      "ariaLabel": "Filter by status",
+      "options": {
+        "all": "All Statuses",
+        "active": "Active",
+        "inactive": "Inactive",
+        "trial": "Trial"
+      }
+    },
+    "errors": {
+      "searchTooLong": "Search query too long"
+    }
+  },
+  "CreateNewClientModal": {
+    "title": "Create New Client",
+    "buttons": {
+      "cancel": "Cancel",
+      "create": "Create Client"
+    },
+    "form": {
+      "name": {
+        "label": "Client Name",
+        "placeholder": "Company Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "contact@company.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Company password"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+1234567890"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "123 Business St, City"
+      },
+      "website": {
+        "label": "Website",
+        "placeholder": "https://company.com"
+      },
+      "industry": {
+        "label": "Industry",
+        "placeholder": "Select Industry"
+      },
+      "plan": {
+        "label": "Plan",
+        "placeholder": "Select Plan"
+      },
+      "size": {
+        "label": "Company Size",
+        "placeholder": "Select Size",
+        "options": {
+          "small": "Small (1-50)",
+          "medium": "Medium (51-200)",
+          "large": "Large (201-1000)",
+          "enterprise": "Enterprise (1000+)"
+        }
+      },
+      "commercialRegister": {
+        "label": "Commercial Register",
+        "placeholder": "CR-123456"
+      },
+      "taxId": {
+        "label": "Tax ID",
+        "placeholder": "TAX-123-456"
+      },
+      "description": {
+        "label": "Description",
+        "placeholder": "Brief description of the client"
+      }
+    },
+    "industries": {
+      "technology": "Technology",
+      "finance": "Finance",
+      "healthcare": "Healthcare",
+      "education": "Education",
+      "retail": "Retail",
+      "manufacturing": "Manufacturing",
+      "hospitality": "Hospitality",
+      "other": "Other"
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email",
+      "minLength": "Must be at least {min} characters",
+      "invalidUrl": "Please enter a valid URL",
+      "invalidPhone": "Please enter a valid phone number"
+    }
+  },
+  "Analytics": {
+    "title": "Analytics",
+    "datePicker": {
+      "label": "Select date",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month",
+      "customRange": "Custom Range"
+    },
+    "Overview": {
+      "title": "Overview",
+      "changeFromLastPeriod": "from last period",
+      "metrics": {
+        "users": {
+          "title": "Total Users"
+        },
+        "revenue": {
+          "title": "Revenue"
+        },
+        "sessions": {
+          "title": "Sessions"
+        }
+      }
+    },
+    "CallsOverTime": {
+      "title": "Calls Over Time",
+      "tooltipLabel": "Calls",
+      "days": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      }
+    },
+    "TicketVolume": {
+      "title": "Ticket Volume Per Day",
+      "tooltipLabel": "Tickets",
+      "days": {
+        "mon": "Monday",
+        "tue": "Tuesday",
+        "wed": "Wednesday",
+        "thu": "Thursday",
+        "fri": "Friday",
+        "sat": "Saturday",
+        "sun": "Sunday"
+      }
+    },
+    "TopActiveClients": {
+      "title": "Top 5 Active Clients",
+      "client": "Client",
+      "calls": "Calls",
+      "clientName": "Client {number}"
+    }
+  },
+  "UsersAndRoles": {
+    "title": "Users & Roles",
+    "addUserButton": "Add New User",
+    "search": {
+      "placeholder": "Search users by name, email, or role",
+      "button": "Search"
+    }
+  },
+  "CreateUserModal": {
+    "title": "Create New User",
+    "close": "Close",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "form": {
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@email.com"
+      },
+      "role": {
+        "label": "Role",
+        "placeholder": "Select role",
+        "options": {
+          "admin": "Admin",
+          "client": "Client"
+        }
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter password"
+      },
+      "submit": {
+        "create": "Create User",
+        "creating": "Creating..."
+      }
+    }
+  },
+  "UsersTable": {
+    "columns": {
+      "user": "User",
+      "role": "Role",
+      "status": "Status",
+      "lastActive": "Last Active",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "resetPassword": "Reset Password",
+      "permissions": "Permissions"
+    }
+  },
+  "Pagination": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "pageNumber": "Page {number}"
+  },
+  "Settings": {
+    "theme": {
+      "title": "Theme",
+      "description": "Choose your preferred theme"
+    }
+  },
+  "LanguageSettings": {
+    "title": "Select your language",
+    "description": "Choose your preferred language",
+    "systemLanguage": "Default system language",
+    "placeholder": "What is your language?",
+    "languages": {
+      "arabic": "العربية",
+      "english": "English"
+    }
+  },
   "Home": {
     "dir": "ltr"
   }
