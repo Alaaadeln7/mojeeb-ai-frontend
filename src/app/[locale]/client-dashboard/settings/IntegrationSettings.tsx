@@ -13,8 +13,7 @@ export default function IntegrationSettings() {
       <CardHeader>
         <CardTitle className="text-xl md:text-2xl">{t("title")}</CardTitle>
       </CardHeader>
-      <CardContent className="border rounded-2xl p-4 md:p-6 space-y-4 md:space-y-6">
-        {/* Google Calendar Integration */}
+      <CardContent className=" p-4 md:p-6 space-y-4 md:space-y-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4">
           <h4 className="text-sm md:text-base font-medium w-full sm:w-auto">
             {t("googleCalendar")}

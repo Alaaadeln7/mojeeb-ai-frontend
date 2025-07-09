@@ -24,8 +24,8 @@ export default function DataUsageCircle({
   ];
 
   const COLORS = {
-    light: ["#10a5b1", "#e5e7eb"], // primary color, muted color
-    dark: ["#10a5b1", "#374151"], // primary color, dark muted
+    light: ["#10a5b1", "#e5e7eb"],
+    dark: ["#10a5b1", "#374151"],
   };
 
   return (

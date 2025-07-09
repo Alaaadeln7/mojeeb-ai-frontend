@@ -15,30 +15,13 @@ export default function LanguageSettings() {
   const { theme } = useTheme();
   const locale = useLocale();
   const isRTL = locale === "ar";
-
   return (
     <Card className={`my-4 md:my-6 ${theme === "dark" ? "bg-card" : ""}`}>
       <CardHeader>
         <CardTitle className="text-xl md:text-2xl">{t("title")}</CardTitle>
       </CardHeader>
-      <CardContent className="border rounded-2xl p-4 md:p-6">
+      <CardContent className="p-4 md:p-6">
         <form className="space-y-4 md:space-y-6" dir={isRTL ? "rtl" : "ltr"}>
-          {/* Application Language */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <Label className="text-sm md:text-base">
-              {t("applicationLanguage")}
-            </Label>
-            <Select>
-              <SelectTrigger className="w-full md:w-64">
-                <SelectValue placeholder={t("selectLanguage")} />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="ar">العربية</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
           {/* Voice Assistant */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <Label className="text-sm md:text-base">

@@ -47,7 +47,7 @@ export default function CallGreeting() {
   };
 
   return (
-    <Card className="p-6 rounded-2xl shadow-lg mx-auto mt-10">
+    <Card className="p-6 rounded-2xl shadow-lg mt-10">
       <h3 className="text-2xl mb-3 font-semibold bg-gradient-to-r from-[#10a5b1] to-[#3d4d58] bg-clip-text text-transparent">
         {t("title")}
       </h3>

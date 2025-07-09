@@ -32,8 +32,12 @@ export default function LangSettings() {
             <SelectValue placeholder={t("placeholder")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="ar">{t("languages.arabic")}</SelectItem>
-            <SelectItem value="en">{t("languages.english")}</SelectItem>
+            <SelectItem value="ar" onClick={() => handleLanguageChange("ar")}>
+              {t("languages.arabic")}
+            </SelectItem>
+            <SelectItem value="en" onClick={() => handleLanguageChange("en")}>
+              {t("languages.english")}
+            </SelectItem>
           </SelectContent>
         </Select>
       </div>

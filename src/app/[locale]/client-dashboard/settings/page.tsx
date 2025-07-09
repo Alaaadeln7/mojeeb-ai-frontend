@@ -26,50 +26,15 @@ export default function Settings() {
   return (
     <div className="p-5 sm:p-10" dir={theme === "ar" ? "rtl" : "ltr"}>
       <div className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("accountSettings")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <AccountSettings setOpenEditProfile={setOpenEditProfile} />
-          </CardContent>
-        </Card>
+        <AccountSettings setOpenEditProfile={setOpenEditProfile} />
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("themeSettings")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ThemeSettings />
-          </CardContent>
-        </Card>
+        <ThemeSettings />
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("languageSettings")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <LanguageSettings />
-          </CardContent>
-        </Card>
+        <LanguageSettings />
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("integrationSettings")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <IntegrationSettings />
-          </CardContent>
-        </Card>
+        <IntegrationSettings />
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("notificationPreferences")}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <NotificationsPreference />
-          </CardContent>
-        </Card>
+        <NotificationsPreference />
 
         <Button className="my-5">{t("saveChanges")}</Button>
       </div>

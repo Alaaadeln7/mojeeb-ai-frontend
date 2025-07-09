@@ -589,6 +589,37 @@
       "english": "الإنجليزية"
     }
   },
+  "CallsAndTickets": {
+    "title": "المكالمات والتذاكر",
+    "statusFilterPlaceholder": "تصفية حسب الحالة",
+    "statusFilterAll": "جميع الحالات",
+    "statusFilterCompleted": "مكتمل",
+    "statusFilterMissed": "فات",
+    "statusFilterScheduled": "مجدول",
+    "typeFilterPlaceholder": "تصفية حسب النوع",
+    "typeFilterAll": "جميع الأنواع",
+    "typeFilterInbound": "وارد",
+    "typeFilterOutbound": "صادر",
+    "filterButton": "تطبيق الفلاتر",
+    "customer": "العميل",
+    "phone": "الهاتف",
+    "duration": "المدة",
+    "scenario": "السيناريو",
+    "date": "التاريخ",
+    "status": "الحالة",
+    "type": "النوع",
+    "actions": "الإجراءات",
+    "view": "عرض",
+    "status": {
+      "completed": "مكتمل",
+      "missed": "فات",
+      "scheduled": "مجدول"
+    },
+    "type": {
+      "inbound": "وارد",
+      "outbound": "صادر"
+    }
+  },
   "Home": {
     "dir": "rtl"
   }

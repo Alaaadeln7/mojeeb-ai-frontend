@@ -1,6 +1,13 @@
 "use client";
 
-import { Bell, PanelRightClose, User, Moon, Sun } from "lucide-react";
+import {
+  Bell,
+  PanelRightClose,
+  User,
+  Moon,
+  Sun,
+  Languages,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,56 +19,42 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
-import { useRouter, usePathname } from "next-intl/navigation";
+import { useRouter } from "next/navigation";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 interface ClientDashboardHeaderProps {
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
   isOpenProfile: boolean;
   setIsOpenProfile: (open: boolean) => void;
 }
 
 export default function ClientDashboardHeader({
-  isOpen,
-  setIsOpen,
   isOpenProfile,
   setIsOpenProfile,
 }: ClientDashboardHeaderProps) {
-  const { setTheme, theme } = useTheme();
+  const { setTheme } = useTheme();
   const t = useTranslations("Dashboard.Header");
   const router = useRouter();
-  const pathname = usePathname();
 
-  const changeLocale = (locale: string) => {
-    router.push(pathname, { locale });
+  const handleLanguageChange = (newLocale: string) => {
+    router.push(`/${newLocale}/client-dashboard/settings`);
   };
-
   return (
     <header className="flex items-center justify-between p-4 px-6 border-b">
-      {!isOpen && (
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <PanelRightClose className="size-5" />
-        </Button>
-      )}
+      <SidebarTrigger />
 
       <div className="flex items-center gap-2">
         {/* Language Switcher */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="text-sm font-normal">
-              {t("language")}
+              <Languages className="size-5" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => changeLocale("en")}>
+            <DropdownMenuItem onClick={() => handleLanguageChange("en")}>
               English
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => changeLocale("ar")}>
+            <DropdownMenuItem onClick={() => handleLanguageChange("ar")}>
               العربية
             </DropdownMenuItem>
           </DropdownMenuContent>

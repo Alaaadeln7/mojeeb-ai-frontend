@@ -285,6 +285,37 @@
     "saveChanges": "Save Changes",
     "editProfile": "Edit Profile"
   },
+  "CallsAndTickets": {
+    "title": "Calls & Tickets",
+    "statusFilterPlaceholder": "Filter by status",
+    "statusFilterAll": "All Statuses",
+    "statusFilterCompleted": "Completed",
+    "statusFilterMissed": "Missed",
+    "statusFilterScheduled": "Scheduled",
+    "typeFilterPlaceholder": "Filter by type",
+    "typeFilterAll": "All Types",
+    "typeFilterInbound": "Inbound",
+    "typeFilterOutbound": "Outbound",
+    "filterButton": "Apply Filters",
+    "customer": "Customer",
+    "phone": "Phone",
+    "duration": "Duration",
+    "scenario": "Scenario",
+    "date": "Date",
+    "status": "Status",
+    "type": "Type",
+    "actions": "Actions",
+    "view": "View",
+    "status": {
+      "completed": "Completed",
+      "missed": "Missed",
+      "scheduled": "Scheduled"
+    },
+    "type": {
+      "inbound": "Inbound",
+      "outbound": "Outbound"
+    }
+  },
   "DataTable": {
     "columns": {
       "header": "Header",
