@@ -1,6 +1,5 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/organisms/AdminSidebar";
-import AdminSiteHeader from "@/components/organisms/AdminSiteHeader";
+import ClientSidebar from "@/components/organisms/ClientSidebar";
 
 export default function AdminDashboardLayout({
   children,
@@ -17,11 +16,8 @@ export default function AdminDashboardLayout({
         } as React.CSSProperties
       }
     >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <AdminSiteHeader />
-        {children}
-      </SidebarInset>
+      <ClientSidebar variant="inset" />
+      <SidebarInset>{children}</SidebarInset>
     </SidebarProvider>
   );
 }

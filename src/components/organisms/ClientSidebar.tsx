@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { NavMain } from "@/components/organisms/nav-main";
 import { NavUser } from "@/components/organisms/nav-user";
 import {
   Sidebar,
@@ -18,12 +17,13 @@ import {
   Database,
   LayoutDashboard,
   // LogOut,
-  NotepadText,
+  // NotepadText,
   Settings,
   User,
   Users,
   type LucideIcon,
 } from "lucide-react";
+import NavMainClientDashboard from "./NavMainClientDashboard";
 
 // Define interfaces for type safety
 interface NavItem {
@@ -39,8 +39,8 @@ interface UserData {
   logoutText: string;
 }
 
-export function AppSidebar({ ...props }) {
-  const t = useTranslations("AppSidebar");
+export default function ClientSidebar({ ...props }) {
+  const t = useTranslations("clientSidebar");
   const locale = useLocale();
   const isRTL = locale === "ar";
 
@@ -51,34 +51,29 @@ export function AppSidebar({ ...props }) {
       icon: LayoutDashboard,
     },
     {
-      title: t("navItems.clients"),
-      url: "/clients",
+      title: t("navItems.callsAndTickets"),
+      url: "/calls-tickets",
       icon: User,
     },
     {
-      title: t("navItems.analytics"),
-      url: "/analytics",
+      title: t("navItems.voiceScript"),
+      url: "/voice-script",
       icon: ChartLine,
     },
     {
-      title: t("navItems.usersRoles"),
-      url: "users-roles",
+      title: t("navItems.performanceAnalytics"),
+      url: "/performance-analytics",
       icon: Users,
     },
     {
-      title: t("navItems.subscriptions"),
-      url: "/subscriptions",
+      title: t("navItems.aiOutbound"),
+      url: "/ai-outbound-calls",
       icon: Database,
     },
     {
       title: t("navItems.settings"),
       url: "/settings",
       icon: Settings,
-    },
-    {
-      title: t("navItems.plans"),
-      url: "/plans",
-      icon: NotepadText,
     },
   ];
 
@@ -108,7 +103,7 @@ export function AppSidebar({ ...props }) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={navItems} />
+        <NavMainClientDashboard items={navItems} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={userData} />

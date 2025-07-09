@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { NavMain } from "@/components/organisms/nav-main";
+import NavMainAdminDashboard from "@/components/organisms/NavMainAdminDashboard";
 import { NavUser } from "@/components/organisms/nav-user";
 import {
   Sidebar,
@@ -108,7 +108,7 @@ export function AppSidebar({ ...props }) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={navItems} />
+        <NavMainAdminDashboard items={navItems} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={userData} />

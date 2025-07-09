@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 
-export function NavMain({
+export default function NavMainAdminDashboard({
   items,
 }: {
   items: {

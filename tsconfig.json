@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/[locale]/admin-dashboard/clients/CreateNewClientModal.jsx"
+    "src/app/[locale]/admin-dashboard/clients/CreateNewClientModal.jsx",
+    "src/app/[locale]/client-dashboard/voice-script/AddConversationScriptModal.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -106,6 +106,184 @@
       "logout": "تسجيل الخروج"
     }
   },
+  "clientSidebar": {
+    "brandName": "شركة أكمي",
+    "navItems": {
+      "dashboard": "لوحة التحكم",
+      "callsAndTickets": "المكالمات والتذاكر",
+      "voiceScript": "الاسكريبت الصوتي",
+      "performanceAnalytics": "تحليلات الأداء",
+      "aiOutbound": "اوتبوند AI",
+      "settings": "الإعدادات"
+    },
+    "user": {
+      "logout": "تسجيل الخروج"
+    }
+  },
+  "UsageWarning": {
+    "title": "تحذير الاستخدام",
+    "upgradeButton": "ترقية الخطة"
+  },
+  "RecentClients": {
+    "title": "العملاء الحديثون",
+    "columns": {
+      "name": "الاسم",
+      "date": "التاريخ",
+      "duration": "المدة",
+      "ticket": "التذكرة"
+    }
+  },
+  "DataUsage": {
+    "title": "استخدام البيانات",
+    "usage": "تم استخدام {used} جيجا من {total} جيجا"
+  },
+  "Dashboard": {
+    "Header": {
+      "language": "اللغة",
+      "notifications": "الإشعارات",
+      "noNotifications": "لا توجد إشعارات جديدة",
+      "toggleTheme": "تبديل السمة",
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "النظام",
+      "userProfile": "ملف المستخدم"
+    }
+  },
+  "VoiceScript": {
+    "addScript": "إضافة نص",
+    "saveChanges": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "loading": "جاري تحميل نصوص الصوت",
+    "error": "خطأ في تحميل نصوص الصوت"
+  },
+  "KeywordModal": {
+    "updateTitle": "تحديث الكلمة المفتاحية",
+    "updateDescription": "قم بتعديل السؤال والإجابة والكلمة المفتاحية المرتبطة",
+    "questionLabel": "السؤال",
+    "questionPlaceholder": "أدخل السؤال...",
+    "answerLabel": "الإجابة",
+    "answerPlaceholder": "أدخل الإجابة...",
+    "keywordLabel": "الكلمة المفتاحية",
+    "keywordPlaceholder": "أدخل الكلمة المفتاحية...",
+    "cancelButton": "إلغاء",
+    "updateButton": "تحديث",
+    "updatingButton": "جاري التحديث..."
+  },
+  "VoiceScriptHeader": {
+    "title": "إدارة نصوص الصوت",
+    "subtitle": "نصوص مخصصة لمتحدث الذكاء الاصطناعي لعملائك"
+  },
+  "MainConversationScript": {
+    "title": "النص الرئيسي للمحادثة",
+    "addButton": "إضافة سطر جديد",
+    "deleteButton": "حذف"
+  },
+  "KeywordBaseReplies": {
+    "title": "الردود القائمة على الكلمات المفتاحية",
+    "keywordHeader": "الكلمة المفتاحية",
+    "responseHeader": "رد الذكاء الاصطناعي",
+    "actionsHeader": "الإجراءات",
+    "editButton": "تعديل",
+    "saveButton": "حفظ النص",
+    "restoreButton": "استعادة النسخة السابقة"
+  },
+  "ConversationScript": {
+    "noScriptsAvailable": "لا توجد نصوص محادثة متاحة",
+    "customer": "العميل",
+    "aiName": "معجب الذكاء الاصطناعي"
+  },
+  "CallGreeting": {
+    "title": "تحية المكالمة",
+    "inputPlaceholder": "اكتب التحية لاختبار الصوت",
+    "languageLabel": "اللغة",
+    "languagePlaceholder": "اختر اللغة",
+    "voiceLabel": "الصوت",
+    "voicePlaceholder": "اختر الصوت",
+    "playButtonAria": "تشغيل التحية",
+    "instructions": "اختر اللغة والصوت، ثم اكتب التحية لاختبارها."
+  },
+  "AddConversationModal": {
+    "title": "إضافة نص محادثة",
+    "customerLabel": "العميل",
+    "aiLabel": "معجب الذكاء الاصطناعي",
+    "customerMessageLabel": "رسالة العميل",
+    "aiResponseLabel": "رد الذكاء الاصطناعي",
+    "keywordLabel": "الكلمة المفتاحية",
+    "cancelButton": "إلغاء",
+    "addButton": "إضافة محادثة",
+    "processingButton": "جاري المعالجة..."
+  },
+  "AccountSettings": {
+    "title": "إعدادات الحساب",
+    "editButton": "تعديل",
+    "emailLabel": "البريد الإلكتروني",
+    "addressLabel": "العنوان",
+    "phoneLabel": "رقم الهاتف"
+  },
+  "IntegrationSettings": {
+    "title": "إعدادات التكامل",
+    "googleCalendar": "تقويم جوجل",
+    "slack": "سلاك",
+    "googlePlaceholder": "https://example.com",
+    "slackPlaceholder": "رابط ويب هوك",
+    "connectButton": "اتصل"
+  },
+  "LanguageSettingsClient": {
+    "title": "إعدادات اللغة والصوت",
+    "applicationLanguage": "لغة التطبيق",
+    "voiceAssistant": "المساعد الصوتي",
+    "defaultAIVoice": "الصوت الافتراضي للذكاء الاصطناعي",
+    "selectLanguage": "اختر لغتك",
+    "selectVoiceAssistant": "اختر المساعد الصوتي",
+    "selectAIVoice": "اختر صوت الذكاء الاصطناعي",
+    "maleVoice": "صوت ذكر",
+    "femaleVoice": "صوت أنثى",
+    "neutralVoice": "صوت محايد",
+    "natural": "طبيعي",
+    "professional": "احترافي",
+    "friendly": "ودود"
+  },
+  "NotificationsPreference": {
+    "title": "تفضيلات الإشعارات",
+    "emailNotifications": "إشعارات البريد الإلكتروني",
+    "planUsageAlert": "تنبيه استخدام الخطة",
+    "ticketEscalationAlert": "تنبيه تصعيد التذكرة",
+    "performanceReports": "تقارير الأداء"
+  },
+  "ProfileModal": {
+    "title": "ملف العميل",
+    "id": "المعرف",
+    "companyInfo": "معلومات الشركة",
+    "companyName": "اسم الشركة",
+    "address": "العنوان",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "industry": "الصناعة",
+    "companySize": "حجم الشركة",
+    "commercialRegister": "السجل التجاري",
+    "taxId": "الرقم الضريبي",
+    "website": "الموقع الإلكتروني",
+    "description": "الوصف",
+    "created": "تم الإنشاء",
+    "updated": "تم التحديث",
+    "closeProfile": "إغلاق الملف"
+  },
+  "ThemeSettings": {
+    "title": "السمة",
+    "description": "اختر السمة المفضلة لديك",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "SettingsClient": {
+    "accountSettings": "إعدادات الحساب",
+    "themeSettings": "إعدادات السمة",
+    "languageSettings": "إعدادات اللغة",
+    "integrationSettings": "إعدادات التكامل",
+    "notificationPreferences": "تفضيلات الإشعارات",
+    "saveChanges": "حفظ التغييرات",
+    "editProfile": "تعديل الملف الشخصي"
+  },
   "DataTable": {
     "columns": {
       "header": "العنوان",

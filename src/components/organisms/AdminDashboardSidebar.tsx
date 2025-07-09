@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { NavMain } from "@/components/organisms/nav-main";
+import { NavMain } from "@/components/organisms/NavMainAdminDashboard";
 import { NavUser } from "@/components/organisms/nav-user";
 import {
   Sidebar,

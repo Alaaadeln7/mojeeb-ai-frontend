@@ -106,6 +106,185 @@
       "logout": "Log out"
     }
   },
+  "clientSidebar": {
+    "brandName": "Akmi Company",
+    "navItems": {
+      "dashboard": "Dashboard",
+      "callsAndTickets": "Calls & Tickets",
+      "voiceScript": "Voice Script",
+      "performanceAnalytics": "Performance Analytics",
+      "aiOutbound": "AI Outbound",
+      "settings": "Settings"
+    },
+    "user": {
+      "logout": "Logout"
+    }
+  },
+  "UsageWarning": {
+    "title": "Usage Warning",
+    "upgradeButton": "Upgrade Plan"
+  },
+  "RecentClients": {
+    "title": "Recent Clients",
+    "columns": {
+      "name": "Name",
+      "date": "Date",
+      "duration": "Duration",
+      "ticket": "Ticket"
+    }
+  },
+  "DataUsage": {
+    "title": "Data Usage",
+    "usage": "{used}GB of {total}GB used"
+  },
+  "Dashboard": {
+    "Header": {
+      "language": "Language",
+      "notifications": "Notifications",
+      "noNotifications": "No new notifications",
+      "toggleTheme": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "userProfile": "User profile"
+    }
+  },
+  "VoiceScript": {
+    "addScript": "Add Script",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "loading": "Loading voice scripts...",
+    "error": "Error loading voice scripts"
+  },
+  "KeywordModal": {
+    "updateTitle": "Update Keyword",
+    "updateDescription": "Edit your question, answer, and associated keyword",
+    "questionLabel": "Question",
+    "questionPlaceholder": "Enter the question...",
+    "answerLabel": "Answer",
+    "answerPlaceholder": "Enter the answer...",
+    "keywordLabel": "Keyword",
+    "keywordPlaceholder": "Enter the keyword...",
+    "cancelButton": "Cancel",
+    "updateButton": "Update",
+    "updatingButton": "Updating..."
+  },
+  "VoiceScriptHeader": {
+    "title": "Voice Script Management",
+    "subtitle": "Custom AI speaker scripts for your customers"
+  },
+  "MainConversationScript": {
+    "title": "Main Conversation Script",
+    "addButton": "Add New Line",
+    "deleteButton": "Delete"
+  },
+  "KeywordBaseReplies": {
+    "title": "Keyword-based Replies",
+    "keywordHeader": "Keyword",
+    "responseHeader": "AI Response",
+    "actionsHeader": "Actions",
+    "editButton": "Edit",
+    "saveButton": "Save Script",
+    "restoreButton": "Restore Previous Version"
+  },
+  "ConversationScript": {
+    "noScriptsAvailable": "No conversation scripts available",
+    "customer": "Customer",
+    "aiName": "Mojeeb AI"
+  },
+  "CallGreeting": {
+    "title": "Call Greeting",
+    "inputPlaceholder": "Write your greeting to test the voice",
+    "languageLabel": "Language",
+    "languagePlaceholder": "Select language",
+    "voiceLabel": "Voice",
+    "voicePlaceholder": "Select voice",
+    "playButtonAria": "Play greeting",
+    "instructions": "Select language and voice, then type your greeting to test it."
+  },
+
+  "AddConversationModal": {
+    "title": "Add Conversation Script",
+    "customerLabel": "Customer",
+    "aiLabel": "Mojeeb AI",
+    "customerMessageLabel": "Customer Message",
+    "aiResponseLabel": "AI Response",
+    "keywordLabel": "Keyword",
+    "cancelButton": "Cancel",
+    "addButton": "Add Conversation",
+    "processingButton": "Processing..."
+  },
+  "AccountSettings": {
+    "title": "Account Settings",
+    "editButton": "Edit",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone Number"
+  },
+  "IntegrationSettings": {
+    "title": "Integration Settings",
+    "googleCalendar": "Google Calendar",
+    "slack": "Slack",
+    "googlePlaceholder": "https://example.com",
+    "slackPlaceholder": "webhook url",
+    "connectButton": "Connect"
+  },
+  "LanguageSettingsClient": {
+    "title": "Language & Voice Preference",
+    "applicationLanguage": "Application Language",
+    "voiceAssistant": "Voice Assistant",
+    "defaultAIVoice": "Default AI Voice",
+    "selectLanguage": "Select your language",
+    "selectVoiceAssistant": "Select voice assistant",
+    "selectAIVoice": "Select AI voice",
+    "maleVoice": "Male Voice",
+    "femaleVoice": "Female Voice",
+    "neutralVoice": "Neutral Voice",
+    "natural": "Natural",
+    "professional": "Professional",
+    "friendly": "Friendly"
+  },
+  "NotificationsPreference": {
+    "title": "Notifications Preference",
+    "emailNotifications": "Email Notifications",
+    "planUsageAlert": "Plan Usage Alert",
+    "ticketEscalationAlert": "Ticket Escalation Alert",
+    "performanceReports": "Performance Reports"
+  },
+  "ProfileModal": {
+    "title": "Client Profile",
+    "id": "ID",
+    "companyInfo": "Company Information",
+    "companyName": "Company Name",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "industry": "Industry",
+    "companySize": "Company Size",
+    "commercialRegister": "Commercial Register",
+    "taxId": "Tax ID",
+    "website": "Website",
+    "description": "Description",
+    "created": "Created",
+    "updated": "Updated",
+    "closeProfile": "Close Profile"
+  },
+  "ThemeSettings": {
+    "title": "Theme",
+    "description": "Choose your theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "SettingsClient": {
+    "accountSettings": "Account Settings",
+    "themeSettings": "Theme Settings",
+    "languageSettings": "Language Settings",
+    "integrationSettings": "Integration Settings",
+    "notificationPreferences": "Notification Preferences",
+    "saveChanges": "Save Changes",
+    "editProfile": "Edit Profile"
+  },
   "DataTable": {
     "columns": {
       "header": "Header",
