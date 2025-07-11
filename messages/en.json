@@ -622,6 +622,87 @@
       "english": "English"
     }
   },
+  "ScenarioPerformance": {
+    "title": "Scenario Performance",
+    "viewAll": "View All",
+    "scenarioName": "Scenario Name",
+    "scenario": "Scenario",
+    "calls": "Calls",
+    "avgDuration": "Avg Duration",
+    "satisfaction": "Satisfaction"
+  },
+  "PreviousDays": {
+    "fromPreviousDays": "from previous 7 days",
+    "escalationText": "escalation to human agents",
+    "time": {
+      "8am": "8 am",
+      "12pm": "12 pm",
+      "2pm": "2 pm",
+      "4pm": "4 pm",
+      "6pm": "6 pm"
+    }
+  },
+  "KeywordInsights": {
+    "title": "Keyword Insights",
+    "keywords": {
+      "appointment": "Appointment",
+      "hours": "Hours",
+      "price": "Price",
+      "services": "Services",
+      "location": "Location"
+    }
+  },
+  "IntentDetection": {
+    "title": "Intent Detection Accuracy",
+    "accuracy": "Accuracy"
+  },
+  "DailyAiCalls": {
+    "title": "Daily AI Calls"
+  },
+  "ConversionsRate": {
+    "title": "Conversions Overview",
+    "conversionRate": "Conversion Rate",
+    "missedIntents": "AI Missed Intents"
+  },
+  "AnalystCard": {
+    "your_title_key": "Your Title"
+  },
+  "PerformanceAnalyst": {
+    "totalCalls": "Total Calls",
+    "answeredCalls": "Answered Calls",
+    "ticketsCreated": "Tickets Created",
+    "averageCallDuration": "Average Call Duration",
+    "customerSatisfaction": "Customer Satisfaction",
+    "minutes": "min"
+  },
+  "AiOutboundCalls": {
+    "name": "Name",
+    "job": "Job Title",
+    "statusTitle": "Status",
+    "duration": "Duration",
+    "satisfaction": "Satisfaction",
+    "previous": "Previous",
+    "next": "Next",
+    "showingResults": "Showing {from} to {to} of {total} results",
+    "minutesAbbr": "m",
+    "callName": "Call #{number}",
+    "status": {
+      "completed": "Completed",
+      "in-progress": "In Progress",
+      "failed": "Failed"
+    },
+    "jobTitles": {
+      "specialist": "Quality Control Specialist",
+      "manager": "Operations Manager",
+      "analyst": "Data Analyst"
+    },
+    "header": {
+      "title": "AI Outbound Calls",
+      "subtitle": "Reach your clients automatically with smart conversations",
+      "addCallTask": "Add Call Task",
+      "importCSV": "Import CSV"
+    }
+  },
   "Home": {
     "dir": "ltr"
   }

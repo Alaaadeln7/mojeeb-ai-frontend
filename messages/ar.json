@@ -620,6 +620,87 @@
       "outbound": "صادر"
     }
   },
+  "ScenarioPerformance": {
+    "title": "أداء السيناريو",
+    "viewAll": "عرض الكل",
+    "scenarioName": "اسم السيناريو",
+    "scenario": "السيناريو",
+    "calls": "المكالمات",
+    "avgDuration": "متوسط المدة",
+    "satisfaction": "الرضا"
+  },
+  "PreviousDays": {
+    "fromPreviousDays": "من الأيام السبعة الماضية",
+    "escalationText": "تصعيد إلى وكلاء بشريين",
+    "time": {
+      "8am": "8 ص",
+      "12pm": "12 م",
+      "2pm": "2 م",
+      "4pm": "4 م",
+      "6pm": "6 م"
+    }
+  },
+  "KeywordInsights": {
+    "title": "رؤى الكلمات الرئيسية",
+    "keywords": {
+      "appointment": "موعد",
+      "hours": "ساعات",
+      "price": "السعر",
+      "services": "خدمات",
+      "location": "موقع"
+    }
+  },
+  "IntentDetection": {
+    "title": "دقة اكتشاف النية",
+    "accuracy": "الدقة"
+  },
+  "DailyAiCalls": {
+    "title": "المكالمات اليومية للذكاء الاصطناعي"
+  },
+  "ConversionsRate": {
+    "title": "نظرة عامة على التحويلات",
+    "conversionRate": "معدل التحويل",
+    "missedIntents": "النوايا المفقودة للذكاء الاصطناعي"
+  },
+  "AnalystCard": {
+    "your_title_key": "عنوانك"
+  },
+  "PerformanceAnalyst": {
+    "totalCalls": "إ مجموع المكالمات",
+    "answeredCalls": "المكالمات التي تم الرد عليها",
+    "ticketsCreated": "التذاكر التي تم إنشاؤها",
+    "averageCallDuration": "متوسط مدة المكالمة",
+    "customerSatisfaction": "رضا العملاء",
+    "minutes": "دقيقة"
+  },
+  "AiOutboundCalls": {
+    "name": "الاسم",
+    "job": "المسمى الوظيفي",
+    "statusTitle": "الحالة",
+    "duration": "المدة",
+    "satisfaction": "الرضا",
+    "previous": "السابق",
+    "next": "التالي",
+    "showingResults": "عرض {from} إلى {to} من {total} نتيجة",
+    "minutesAbbr": "د",
+    "callName": "مكالمة #{number}",
+    "status": {
+      "completed": "مكتمل",
+      "in-progress": "قيد التنفيذ",
+      "failed": "فشل"
+    },
+    "jobTitles": {
+      "specialist": "أخصائي مراقبة الجودة",
+      "manager": "مدير العمليات",
+      "analyst": "محلل بيانات"
+    },
+    "header": {
+      "title": "المكالمات الصادرة بالذكاء الاصطناعي",
+      "subtitle": "تواصل مع عملائك تلقائيًا بمحادثات ذكية",
+      "addCallTask": "إضافة مهمة اتصال",
+      "importCSV": "استيراد CSV"
+    }
+  },
   "Home": {
     "dir": "rtl"
   }

@@ -47,7 +47,7 @@ export default function ThemeSettings() {
                   : "hover:border-primary"
               }`}
             >
-              <div className="w-full p-3 md:p-4 text-left">
+              <div className="w-full p-3 md:p-4 text-left relative">
                 <div
                   className={`w-full h-16 sm:h-20 md:h-24 rounded mb-2 ${mode.bg}`}
                 ></div>
