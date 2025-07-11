@@ -13,10 +13,8 @@ import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
 
 export default function VoiceScript() {
-  const { theme } = useTheme();
   const t = useTranslations("VoiceScript");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedChatbot, setSelectedChatbot] = useState([]);
@@ -30,7 +28,6 @@ export default function VoiceScript() {
   const [openUpdateKeyword, setOpenUpdateKeyword] = useState(false);
   const [selectInquiry, setSelectInquiry] = useState();
   const { currentClient } = useClient();
-
   const handleSelectClient = (clientId: string) => {
     setSelectedClients((prev) =>
       prev.includes(clientId)

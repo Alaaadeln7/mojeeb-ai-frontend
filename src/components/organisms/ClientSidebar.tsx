@@ -13,18 +13,17 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
-  ChartLine,
   Database,
   LayoutDashboard,
-  // LogOut,
-  // NotepadText,
+  MessageSquareMore,
   Settings,
   User,
   Users,
   type LucideIcon,
 } from "lucide-react";
 import NavMainClientDashboard from "./NavMainClientDashboard";
-
+import Image from "next/image";
+import logoImage from "../../../public/mojeb-ai-logo.png";
 // Define interfaces for type safety
 interface NavItem {
   title: string;
@@ -58,7 +57,7 @@ export default function ClientSidebar({ ...props }) {
     {
       title: t("navItems.voiceScript"),
       url: "/voice-script",
-      icon: ChartLine,
+      icon: MessageSquareMore,
     },
     {
       title: t("navItems.performanceAnalytics"),
@@ -94,6 +93,11 @@ export default function ClientSidebar({ ...props }) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <a href="#">
+                <Image
+                  src={logoImage}
+                  alt={"logo image"}
+                  className="w-14 object-cover"
+                />
                 <span className="text-base font-semibold">
                   {t("brandName")}
                 </span>

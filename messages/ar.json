@@ -49,15 +49,25 @@
   "Login": {
     "title": "تسجيل الدخول",
     "email": "البريد الإلكتروني",
+    "emailPlaceholder": "example@domain.com",
     "password": "كلمة المرور",
+    "passwordPlaceholder": "••••••••",
     "submit": "تسجيل الدخول",
-    "registerLink": "ليس لديك حساب؟ ",
-    "register": "سجل الآن",
+    "loading": "جاري تسجيل الدخول...",
+    "forgetPassword": "نسيت كلمة المرور؟",
+    "createAccount": "إنشاء حساب",
     "validation": {
+      "emailInvalid": "عنوان بريد إلكتروني غير صالح",
       "required": "هذا الحقل مطلوب",
-      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
-      "passwordMin": "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+      "passwordMin": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل"
     }
+  },
+  "ForgetPassword": {
+    "title": "نسيت كلمة المرور",
+    "email": "البريد الإلكتروني",
+    "submit": "ارسال الرمز الخاص بك",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "loading": "جاري ارسال الرمز..."
   },
   "SectionCards": {
     "cards": {
@@ -92,7 +102,7 @@
     }
   },
   "AdminSidebar": {
-    "brandName": "شركة أكمي",
+    "brandName": "مجيب AI",
     "navItems": {
       "dashboard": "لوحة التحكم",
       "clients": "العملاء",
@@ -107,7 +117,7 @@
     }
   },
   "clientSidebar": {
-    "brandName": "شركة أكمي",
+    "brandName": "مجيب AI",
     "navItems": {
       "dashboard": "لوحة التحكم",
       "callsAndTickets": "المكالمات والتذاكر",

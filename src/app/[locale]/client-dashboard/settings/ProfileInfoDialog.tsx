@@ -2,12 +2,13 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { CardHeader, CardContent } from "@/components/ui/card";
+import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
@@ -26,19 +27,33 @@ import {
 } from "lucide-react";
 import useClient from "@/hooks/useClient";
 
-export default function ProfileModal({
-  openProfile,
-  setOpenProfile,
+export default function ProfileInfoDialog({
+  isOpenProfile,
+  setIsOpenProfile,
 }: {
-  openProfile: boolean;
-  setOpenProfile: (open: boolean) => void;
+  isOpenProfile: boolean;
+  setIsOpenProfile: (open: boolean) => void;
 }) {
   const t = useTranslations("ProfileModal");
   const locale = useLocale();
   const isRTL = locale === "ar";
   const { currentClient } = useClient();
 
-  if (!currentClient) return null;
+  console.log(currentClient);
+  console.log(isOpenProfile);
+  if (!currentClient) {
+    return (
+      <Dialog open={isOpenProfile} onOpenChange={setIsOpenProfile}>
+        <DialogContent>
+          <Card>
+            <CardHeader>
+              <h1>sorrrry</h1>
+            </CardHeader>
+          </Card>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -62,7 +77,7 @@ export default function ProfileModal({
   };
 
   return (
-    <Dialog open={openProfile} onOpenChange={setOpenProfile}>
+    <Dialog open={isOpenProfile} onOpenChange={setIsOpenProfile}>
       <DialogContent
         className="max-w-4xl rounded-3xl p-0 overflow-hidden border-0 max-h-[95vh]"
         dir={isRTL ? "rtl" : "ltr"}

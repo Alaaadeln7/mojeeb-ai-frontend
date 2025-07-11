@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Bell,
-  PanelRightClose,
-  User,
-  Moon,
-  Sun,
-  Languages,
-} from "lucide-react";
+import { Bell, User, Moon, Sun, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -34,7 +27,7 @@ export default function ClientDashboardHeader({
   const { setTheme } = useTheme();
   const t = useTranslations("Dashboard.Header");
   const router = useRouter();
-
+  console.log("isOpenProfile from header", isOpenProfile);
   const handleLanguageChange = (newLocale: string) => {
     router.push(`/${newLocale}/client-dashboard/settings`);
   };
@@ -52,9 +45,11 @@ export default function ClientDashboardHeader({
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem onClick={() => handleLanguageChange("en")}>
+              <span>🇬🇧</span>
               English
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleLanguageChange("ar")}>
+              <span>🇸🇦</span>
               العربية
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -103,6 +98,7 @@ export default function ClientDashboardHeader({
           size="icon"
           className="rounded-full"
           onClick={() => setIsOpenProfile(!isOpenProfile)}
+          title={t("userProfile")}
         >
           <User className="size-5" />
           <span className="sr-only">{t("userProfile")}</span>

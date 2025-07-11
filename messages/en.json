@@ -49,15 +49,24 @@
   "Login": {
     "title": "Login",
     "email": "Email",
+    "emailPlaceholder": "example@domain.com",
     "password": "Password",
+    "passwordPlaceholder": "••••••••",
     "submit": "Login",
-    "registerLink": "Don't have an account? ",
-    "register": "Register now",
+    "loading": "Logging in...",
+    "forgetPassword": "Forgot password?",
+    "createAccount": "Create account",
     "validation": {
+      "emailInvalid": "Invalid email address",
       "required": "This field is required",
-      "emailInvalid": "Please enter a valid email",
       "passwordMin": "Password must be at least 6 characters"
     }
+  },
+  "ForgetPassword": {
+    "title": " forget password",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "submit": "send otp code"
   },
   "SectionCards": {
     "cards": {
@@ -92,7 +101,7 @@
     }
   },
   "AdminSidebar": {
-    "brandName": "Acme Inc.",
+    "brandName": "mojeeb AI",
     "navItems": {
       "dashboard": "Dashboard",
       "clients": "Clients",
@@ -107,7 +116,7 @@
     }
   },
   "clientSidebar": {
-    "brandName": "Akmi Company",
+    "brandName": "mojeeb AI",
     "navItems": {
       "dashboard": "Dashboard",
       "callsAndTickets": "Calls & Tickets",

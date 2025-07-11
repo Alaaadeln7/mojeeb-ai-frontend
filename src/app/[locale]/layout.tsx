@@ -6,6 +6,7 @@ import { ThemeProvider } from "../../components/molecules/theme-provider";
 import Footer from "@/components/molecules/Footer";
 import ClientProviderWrapper from "./ClientProviderWrapper";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 export default async function LocaleLayout({
   children,
   params,
@@ -37,6 +38,7 @@ export default async function LocaleLayout({
               disableTransitionOnChange
             >
               {children}
+              <Toaster />
               <Footer />
             </ThemeProvider>
           </NextIntlClientProvider>

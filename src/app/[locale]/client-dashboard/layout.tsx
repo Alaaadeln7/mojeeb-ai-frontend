@@ -3,14 +3,13 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import ClientSidebar from "@/components/organisms/ClientSidebar";
 import ClientDashboardHeader from "./ClientDashboardHeader";
 import { useState } from "react";
-import ProfileModal from "./settings/ProfileModal";
+import ProfileInfoDialog from "./settings/ProfileInfoDialog";
 
 export default function ClientDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // const [isOpen, setIsOpen] = useState(false);
   const [isOpenProfile, setIsOpenProfile] = useState(false);
   console.log(isOpenProfile);
   return (
@@ -31,14 +30,14 @@ export default function ClientDashboardLayout({
             setIsOpenProfile={setIsOpenProfile}
           />
           {children}
-          {/* {isOpenProfile && ( */}
-          <ProfileModal
-            openProfile={isOpenProfile}
-            setOpenProfile={setIsOpenProfile}
-          />
-          {/* )} */}
         </SidebarInset>
       </SidebarProvider>
+      {isOpenProfile && (
+        <ProfileInfoDialog
+          isOpenProfile={isOpenProfile}
+          setIsOpenProfile={setIsOpenProfile}
+        />
+      )}
     </>
   );
 }

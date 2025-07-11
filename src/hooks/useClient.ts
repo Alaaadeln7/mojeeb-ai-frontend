@@ -123,7 +123,7 @@ export default function useAuth() {
     try {
       const response = await login(credentials).unwrap();
       console.log("Login successful:", response);
-      toast.success("Login Successful");
+      toast("Login Successful");
       router.push("/");
     } catch (error: unknown) {
       if (isAuthResponseError(error)) {
