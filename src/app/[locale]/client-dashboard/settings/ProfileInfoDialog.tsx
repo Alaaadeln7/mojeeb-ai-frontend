@@ -79,7 +79,7 @@ export default function ProfileInfoDialog({
   return (
     <Dialog open={isOpenProfile} onOpenChange={setIsOpenProfile}>
       <DialogContent
-        className="max-w-4xl rounded-3xl p-0 overflow-hidden border-0 max-h-[95vh]"
+        className="max-w-9xl rounded-3xl p-0 overflow-hidden border-0 max-h-[95vh]"
         dir={isRTL ? "rtl" : "ltr"}
       >
         <motion.div
@@ -107,15 +107,6 @@ export default function ProfileInfoDialog({
                   </Badge>
                 </div>
               </div>
-              <DialogClose asChild>
-                <motion.button
-                  className="bg-background/20 backdrop-blur-sm hover:bg-background/30 rounded-full p-3 border transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <X className="h-6 w-6" />
-                </motion.button>
-              </DialogClose>
             </div>
           </CardHeader>
 
@@ -257,13 +248,6 @@ export default function ProfileInfoDialog({
                       )}
                     </Badge>
                   </div>
-
-                  <Button
-                    onClick={() => setOpenProfile(false)}
-                    className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
-                  >
-                    {t("closeProfile")}
-                  </Button>
                 </div>
               </motion.div>
             </motion.div>
