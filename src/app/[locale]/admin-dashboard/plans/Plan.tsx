@@ -14,7 +14,7 @@ interface PlanCardProps {
   onClick?: () => void;
 }
 
-export function PlanCard({
+export default function PlanCard({
   title,
   price,
   currency = "$",
