@@ -13,15 +13,9 @@ export default function HomePage() {
 
   useEffect(() => {
     if (user) {
-      // socketConnection();
       const redirectPath = getRedirectPath(user?.role);
       if (redirectPath !== window.location.pathname) {
         router.push(redirectPath);
-      }
-    } else {
-      // socketDisconnection();
-      if (window.location.pathname !== "/auth/login") {
-        router.push("/auth/login");
       }
     }
   }, [user, router]);
@@ -41,6 +35,7 @@ export default function HomePage() {
       <LandingPageHeader />
       <Hero />
       <Features />
+      <h1>hello world</h1>
     </div>
   );
 }

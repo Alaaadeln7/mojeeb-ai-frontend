@@ -33,5 +33,6 @@
     "src/app/[locale]/admin-dashboard/clients/CreateNewClientModal.jsx",
     "src/app/[locale]/client-dashboard/voice-script/AddConversationScriptModal.tsx"
   ],
+
   "exclude": ["node_modules"]
 }
