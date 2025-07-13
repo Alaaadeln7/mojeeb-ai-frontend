@@ -31,7 +31,7 @@ interface Client {
 
 interface ClientTableProps {
   selectedClients?: string[];
-  setSelectedClients?: (ids: string[]) => void;
+  setSelectedClients?: React.Dispatch<React.SetStateAction<string[]>>;
   clients?: Client[];
   isLoading?: boolean;
   error?: Error | null;
@@ -44,8 +44,8 @@ export default function ClientTable({
   isLoading = false,
   error = null,
 }: ClientTableProps) {
-  const handleSelectClient = (clientId: string) => {
-    setSelectedClients((prev) =>
+  const handleSelectClient = (clientId: string): void => {
+    setSelectedClients((prev: string[]) =>
       prev.includes(clientId)
         ? prev.filter((id) => id !== clientId)
         : [...prev, clientId]

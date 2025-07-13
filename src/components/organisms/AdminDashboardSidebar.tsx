@@ -22,14 +22,15 @@ import {
   Settings,
   User,
   Users,
-  type LucideIcon,
+  // type LucideIcon,
 } from "lucide-react";
 
 // Define interfaces for type safety
+import Icon from "@/components/organisms/NavMainAdminDashboard";
 interface NavItem {
   title: string;
   url: string;
-  icon: LucideIcon;
+  icon?: Icon;
 }
 
 interface UserData {

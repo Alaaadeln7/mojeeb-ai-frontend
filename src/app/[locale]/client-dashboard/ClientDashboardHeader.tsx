@@ -27,7 +27,6 @@ export default function ClientDashboardHeader({
   const { setTheme } = useTheme();
   const t = useTranslations("Dashboard.Header");
   const router = useRouter();
-  console.log("isOpenProfile from header", isOpenProfile);
   const handleLanguageChange = (newLocale: string) => {
     router.push(`/${newLocale}/client-dashboard/settings`);
   };

@@ -3,7 +3,9 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { FormikProps, FormikValues } from "formik";
 
-interface FormFieldProps<T extends {} = FormikValues> {
+interface FormFieldProps<
+  T extends Record<string, unknown> = Record<string, unknown>
+> {
   label: string;
   name: keyof T;
   type: string;
@@ -12,7 +14,7 @@ interface FormFieldProps<T extends {} = FormikValues> {
   className?: string;
 }
 
-export default function FormField<T extends {} = FormikValues>({
+export default function FormField<T extends FormikValues>({
   label,
   name,
   type,
@@ -28,7 +30,7 @@ export default function FormField<T extends {} = FormikValues>({
       <Input
         type={type}
         id={String(name)}
-        name={String(name)}
+        name={name as string}
         placeholder={placeholder}
         value={formik.values[name] as string}
         onChange={formik.handleChange}

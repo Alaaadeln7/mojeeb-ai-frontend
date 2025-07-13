@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface PlanCardProps {
   title: string;
@@ -24,32 +25,40 @@ export default function PlanCard({
   buttonText = "Get Started",
   onClick = () => {},
 }: PlanCardProps) {
+  const t = useTranslations("Plans");
+
   return (
     <Card
-      className={`relative w-80 transition-all hover:shadow-xl ${
-        featured ? "border-2 border-primary scale-[1.03] shadow-lg" : "border"
+      className={`relative w-full max-w-sm transition-all hover:shadow-xl border-border ${
+        featured ? "border-2 border-primary shadow-lg" : ""
       }`}
     >
       {featured && (
         <Badge
-          variant="secondary"
-          className="absolute -right-[1px] -top-[1px] rounded-bl-lg rounded-tr-lg font-bold"
+          variant="default"
+          className="absolute -right-[1px] -top-[1px] rounded-bl-lg rounded-tr-lg font-bold bg-primary"
         >
-          POPULAR
+          {t("popular")}
         </Badge>
       )}
 
-      <CardHeader className="text-center pb-4">
-        <CardTitle className={`text-xl ${featured ? "text-primary" : ""}`}>
+      <CardHeader className="text-center pb-4 space-y-2">
+        <CardTitle
+          className={`text-2xl ${
+            featured ? "text-primary" : "text-foreground"
+          }`}
+        >
           {title}
         </CardTitle>
 
         <div className="mt-2">
           <span
-            className={`text-4xl font-bold ${featured ? "text-primary" : ""}`}
+            className={`text-4xl font-bold ${
+              featured ? "text-primary" : "text-foreground"
+            }`}
           >
             {currency}
-            {price}
+            {price.toFixed(2)}
           </span>
           <span className="text-sm text-muted-foreground ml-1">
             {billingCycle}
@@ -57,8 +66,8 @@ export default function PlanCard({
         </div>
       </CardHeader>
 
-      <CardContent>
-        <ul className="space-y-3 mb-6">
+      <CardContent className="space-y-4">
+        <ul className="space-y-3">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
               <Check
@@ -66,12 +75,17 @@ export default function PlanCard({
                   featured ? "text-primary" : "text-muted-foreground"
                 }`}
               />
-              <span className="text-sm">{feature}</span>
+              <span className="text-sm text-foreground">{feature}</span>
             </li>
           ))}
         </ul>
 
-        <Button onClick={onClick} size="lg" className="w-full">
+        <Button
+          onClick={onClick}
+          size="lg"
+          className="w-full mt-6"
+          variant={featured ? "default" : "outline"}
+        >
           {buttonText}
         </Button>
       </CardContent>

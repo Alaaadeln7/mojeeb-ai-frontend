@@ -17,25 +17,10 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Define types for chart data
-interface ChartData {
-  name: string;
-  calls: number;
-}
-
 interface PieData {
   name: string;
   value: number;
 }
-
-const data: ChartData[] = [
-  { name: "Apr 1", calls: 10 },
-  { name: "Apr 2", calls: 20 },
-  { name: "Apr 3", calls: 15 },
-  { name: "Apr 4", calls: 30 },
-  { name: "Apr 5", calls: 25 },
-  { name: "Apr 6", calls: 35 },
-  { name: "Apr 7", calls: 28 },
-];
 
 const pieData: PieData[] = [
   { name: "Accuracy", value: 83 },

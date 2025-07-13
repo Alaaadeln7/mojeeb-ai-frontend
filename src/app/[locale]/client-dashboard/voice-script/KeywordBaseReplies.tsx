@@ -39,7 +39,6 @@ export default function KeywordBaseReplies({
         <CardTitle className="text-primary">{t("title")}</CardTitle>
       </CardHeader>
       <CardContent>
-        {/* Desktop/Large Screen View (table) */}
         <div className="hidden sm:block">
           <Table>
             <TableHeader>
@@ -96,7 +95,6 @@ export default function KeywordBaseReplies({
 
         {/* Action Buttons */}
         <div className="flex gap-4 mt-6 flex-wrap">
-          <Button>{t("saveButton")}</Button>
           <Button variant="outline">{t("restoreButton")}</Button>
         </div>
       </CardContent>

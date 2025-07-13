@@ -10,10 +10,7 @@ import { toast } from "@/components/ui/sonner";
 import useClient from "./useClient";
 
 // Type definitions
-interface BaseResponse {
-  success: boolean;
-  message?: string;
-}
+
 
 interface Chatbot {
   id: string;
@@ -32,11 +29,7 @@ interface Inquiry {
   updatedAt?: string;
 }
 
-interface ChatbotResponse extends BaseResponse {
-  data: {
-    inquiries: Inquiry[];
-  };
-}
+
 
 interface UpdateChatbotParams {
   id: string;

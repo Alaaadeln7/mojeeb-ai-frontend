@@ -17,7 +17,7 @@ import { useState } from "react";
 
 interface Client {
   _id: string;
-  [key: string]: any;
+  [key: string]: unknown; // Using unknown for better type safety
 }
 
 interface ApiResponse {
@@ -25,6 +25,17 @@ interface ApiResponse {
   message?: string;
   totalPages?: number;
 }
+
+interface ApiError {
+  data?: {
+    message?: string;
+    data?: {
+      message?: string;
+    };
+  };
+}
+
+type ToastVariant = "default" | "destructive";
 
 export default function useClient() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -55,13 +66,12 @@ export default function useClient() {
 
   const showToast = (
     title: string,
-    description?: string,
-    variant: "default" | "destructive" = "default"
+    message?: string,
+    variant: ToastVariant = "default"
   ) => {
-    toast({
+    toast[variant]({
       title,
-      description,
-      variant,
+      description: message,
     });
   };
 
@@ -69,9 +79,14 @@ export default function useClient() {
     try {
       const response = await emailNotification({ id: clientId }).unwrap();
       showToast("Success", response?.message ?? "Email notification sent");
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to send email notification:", error);
-      showToast("Error", "Failed to send email notification", "destructive");
+      const err = error as ApiError;
+      showToast(
+        "Error",
+        err?.data?.message ?? "Failed to send email notification",
+        "destructive"
+      );
       throw error;
     }
   };
@@ -80,9 +95,14 @@ export default function useClient() {
     try {
       const response = await planUsageAlert({ id: clientId }).unwrap();
       showToast("Success", response?.message ?? "Plan usage alert sent");
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to send plan usage alert:", error);
-      showToast("Error", "Failed to send plan usage alert", "destructive");
+      const err = error as ApiError;
+      showToast(
+        "Error",
+        err?.data?.message ?? "Failed to send plan usage alert",
+        "destructive"
+      );
       throw error;
     }
   };
@@ -91,9 +111,14 @@ export default function useClient() {
     try {
       const response = await performanceReports({ id: clientId }).unwrap();
       showToast("Success", response?.message ?? "Performance report sent");
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to send performance report:", error);
-      showToast("Error", "Failed to send performance report", "destructive");
+      const err = error as ApiError;
+      showToast(
+        "Error",
+        err?.data?.message ?? "Failed to send performance report",
+        "destructive"
+      );
       throw error;
     }
   };
@@ -102,11 +127,12 @@ export default function useClient() {
     try {
       const response = await ticketEscalationAlert({ id: clientId }).unwrap();
       showToast("Success", response?.message ?? "Ticket escalation alert sent");
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to send ticket escalation alert:", error);
+      const err = error as ApiError;
       showToast(
         "Error",
-        "Failed to send ticket escalation alert",
+        err?.data?.message ?? "Failed to send ticket escalation alert",
         "destructive"
       );
       throw error;
@@ -117,13 +143,16 @@ export default function useClient() {
     clientData: Partial<Client>
   ): Promise<void> => {
     try {
-      await createClient(clientData).unwrap();
-      showToast("Success", "Client created successfully");
-    } catch (error: any) {
+      const response = await createClient(clientData).unwrap();
+      showToast("Success", response?.message ?? "Client created successfully");
+    } catch (error: unknown) {
       console.error("Failed to create client:", error);
+      const err = error as ApiError;
       showToast(
         "Error",
-        error?.data?.data?.message ?? "Failed to create client",
+        err?.data?.data?.message ??
+          err?.data?.message ??
+          "Failed to create client",
         "destructive"
       );
       throw error;
@@ -136,11 +165,16 @@ export default function useClient() {
   ): Promise<ApiResponse> => {
     try {
       const response = await updateClient({ id, clientData }).unwrap();
-      showToast("Success", "Client updated successfully");
+      showToast("Success", response?.message ?? "Client updated successfully");
       return response;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to update client:", error);
-      showToast("Error", "Failed to update client", "destructive");
+      const err = error as ApiError;
+      showToast(
+        "Error",
+        err?.data?.message ?? "Failed to update client",
+        "destructive"
+      );
       throw error;
     }
   };
@@ -148,11 +182,16 @@ export default function useClient() {
   const handleDeleteClient = async (id: string): Promise<ApiResponse> => {
     try {
       const response = await deleteClient(id).unwrap();
-      showToast("Success", "Client deleted successfully");
+      showToast("Success", response?.message ?? "Client deleted successfully");
       return response;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Failed to delete client:", error);
-      showToast("Error", "Failed to delete client", "destructive");
+      const err = error as ApiError;
+      showToast(
+        "Error",
+        err?.data?.message ?? "Failed to delete client",
+        "destructive"
+      );
       throw error;
     }
   };
@@ -163,7 +202,7 @@ export default function useClient() {
 
   return {
     handleCreateClient,
-    clients: clients?.data as Client[] | undefined,
+    clients: clients?.data,
     handleUpdateClient,
     handleDeleteClient,
     createClientLoading,
@@ -172,9 +211,9 @@ export default function useClient() {
     deleteClientLoading,
     currentPage,
     handlePageChange,
-    currentClient: currentClient?.data as Client | undefined,
+    currentClient: currentClient?.data,
     getClientLoading,
-    totalPages: clients?.data?.totalPages as number | undefined,
+    totalPages: clients?.totalPages,
     handleEmailNotification,
     emailNotificationLoading,
     handlePlanUsageAlert,

@@ -1,19 +1,20 @@
 "use client";
-
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import {
+  CardHeader,
+  CardContent,
+  Card,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
+  DialogDescription,
   DialogTitle,
-  DialogClose,
 } from "@/components/ui/dialog";
 import {
-  X,
   User,
   Mail,
   Phone,
@@ -26,6 +27,7 @@ import {
   Info,
 } from "lucide-react";
 import useClient from "@/hooks/useClient";
+import { Button } from "@/components/ui/button";
 
 export default function ProfileInfoDialog({
   isOpenProfile,
@@ -34,21 +36,46 @@ export default function ProfileInfoDialog({
   isOpenProfile: boolean;
   setIsOpenProfile: (open: boolean) => void;
 }) {
-  const t = useTranslations("ProfileModal");
+  const t = useTranslations("Profile");
   const locale = useLocale();
   const isRTL = locale === "ar";
   const { currentClient } = useClient();
 
-  console.log(currentClient);
-  console.log(isOpenProfile);
   if (!currentClient) {
     return (
       <Dialog open={isOpenProfile} onOpenChange={setIsOpenProfile}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-[425px]">
           <Card>
             <CardHeader>
-              <h1>sorrrry</h1>
+              <div className="flex flex-col gap-4">
+                <div className="space-y-2 text-center">
+                  <Info className="mx-auto h-10 w-10 text-destructive" />
+                  <DialogTitle>{t("Error.title")}</DialogTitle>
+                  <DialogDescription>
+                    {t("Error.description")}
+                  </DialogDescription>
+                </div>
+
+                <div className="space-y-2 text-sm">
+                  <h4 className="font-medium text-foreground">
+                    {t("Error.possibleReasons.title")}
+                  </h4>
+                  <ul className="space-y-1 text-muted-foreground list-disc pl-5">
+                    <li>{t("Error.possibleReasons.reason1")}</li>
+                    <li>{t("Error.possibleReasons.reason2")}</li>
+                    <li>{t("Error.possibleReasons.reason3")}</li>
+                  </ul>
+                </div>
+              </div>
             </CardHeader>
+            <CardFooter className="flex justify-end gap-2">
+              <Button variant="outline" onClick={() => setIsOpenProfile(false)}>
+                {t("Error.close")}
+              </Button>
+              <Button onClick={() => window.location.reload()}>
+                {t("Error.tryAgain")}
+              </Button>
+            </CardFooter>
           </Card>
         </DialogContent>
       </Dialog>
@@ -72,7 +99,7 @@ export default function ProfileInfoDialog({
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: { duration: 0.4, ease: [0.42, 0, 0.58, 1] },
     },
   };
 
@@ -99,10 +126,10 @@ export default function ProfileInfoDialog({
                 </div>
                 <div>
                   <DialogTitle className="text-3xl text-primary-foreground mb-2">
-                    {t("title")}
+                    {t("Modal.title")}
                   </DialogTitle>
                   <Badge variant="secondary" className="text-sm">
-                    {t("id")}:{" "}
+                    {t("Modal.id")}:{" "}
                     <span className="font-mono">{currentClient._id}</span>
                   </Badge>
                 </div>
@@ -127,33 +154,33 @@ export default function ProfileInfoDialog({
                   <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl p-2">
                     <Briefcase className="h-6 w-6 text-white" />
                   </div>
-                  {t("companyInfo")}
+                  {t("Modal.companyInfo")}
                 </h3>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="space-y-6">
                     <InfoCard
                       icon={<User className="h-5 w-5 text-blue-600" />}
-                      title={t("companyName")}
+                      title={t("Modal.companyName")}
                       value={currentClient.name}
                       iconBg="bg-blue-100"
                     />
                     <InfoCard
                       icon={<MapPin className="h-5 w-5 text-green-600" />}
-                      title={t("address")}
+                      title={t("Modal.address")}
                       value={currentClient.address}
                       iconBg="bg-green-100"
                     />
                     <InfoCard
                       icon={<Phone className="h-5 w-5 text-purple-600" />}
-                      title={t("phone")}
+                      title={t("Modal.phone")}
                       value={currentClient.phone}
                       iconBg="bg-purple-100"
                       isMono
                     />
                     <InfoCard
                       icon={<Mail className="h-5 w-5 text-red-600" />}
-                      title={t("email")}
+                      title={t("Modal.email")}
                       value={currentClient.email}
                       iconBg="bg-red-100"
                     />
@@ -162,26 +189,26 @@ export default function ProfileInfoDialog({
                   <div className="space-y-6">
                     <InfoCard
                       icon={<Briefcase className="h-5 w-5 text-orange-600" />}
-                      title={t("industry")}
+                      title={t("Modal.industry")}
                       value={currentClient.industry}
                       iconBg="bg-orange-100"
                     />
                     <InfoCard
                       icon={<Users className="h-5 w-5 text-teal-600" />}
-                      title={t("companySize")}
+                      title={t("Modal.companySize")}
                       value={currentClient.size}
                       iconBg="bg-teal-100"
                     />
                     <InfoCard
                       icon={<FileText className="h-5 w-5 text-indigo-600" />}
-                      title={t("commercialRegister")}
+                      title={t("Modal.commercialRegister")}
                       value={currentClient.commercialRegister}
                       iconBg="bg-indigo-100"
                       isMono
                     />
                     <InfoCard
                       icon={<DollarSign className="h-5 w-5 text-yellow-600" />}
-                      title={t("taxId")}
+                      title={t("Modal.taxId")}
                       value={currentClient.taxId}
                       iconBg="bg-yellow-100"
                       isMono
@@ -199,7 +226,9 @@ export default function ProfileInfoDialog({
                   <div className="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl p-2">
                     <Globe className="h-6 w-6 text-white" />
                   </div>
-                  <span className="text-xl font-bold">{t("website")}</span>
+                  <span className="text-xl font-bold">
+                    {t("Modal.website")}
+                  </span>
                 </div>
                 <div className="bg-background rounded-xl p-4 shadow-sm">
                   <a
@@ -222,7 +251,9 @@ export default function ProfileInfoDialog({
                   <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl p-2">
                     <Info className="h-6 w-6 text-white" />
                   </div>
-                  <span className="text-xl font-bold">{t("description")}</span>
+                  <span className="text-xl font-bold">
+                    {t("Modal.description")}
+                  </span>
                 </div>
                 <div className="bg-background rounded-xl p-4 shadow-sm">
                   <p className="leading-relaxed">{currentClient.description}</p>
@@ -235,14 +266,14 @@ export default function ProfileInfoDialog({
                   <div className="flex flex-col sm:flex-row gap-4 text-sm">
                     <Badge variant="outline" className="gap-2">
                       <Info className="h-4 w-4" />
-                      {t("created")}:{" "}
+                      {t("Modal.created")}:{" "}
                       {new Date(currentClient.createdAt).toLocaleDateString(
                         locale
                       )}
                     </Badge>
                     <Badge variant="outline" className="gap-2">
                       <Info className="h-4 w-4" />
-                      {t("updated")}:{" "}
+                      {t("Modal.updated")}:{" "}
                       {new Date(currentClient.updatedAt).toLocaleDateString(
                         locale
                       )}

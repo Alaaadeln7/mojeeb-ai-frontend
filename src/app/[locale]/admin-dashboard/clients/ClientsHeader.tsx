@@ -14,24 +14,22 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+// import { Client } from "@/types/clients";
 
 export default function ClientsHeader({ setIsModalOpen, isModalOpen }) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
   const t = useTranslations("ClientsHeader");
-  const {
-    data: searchResults,
-    isLoading: isSearching,
-    error,
-  } = useSearchClientQuery({ query: searchQuery });
+  // const { data: searchResults, isLoading: isSearching } = useSearchClientQuery({
+  //   query: searchQuery,
+  // }) as {
+  //   data: Client[] | undefined;
+  //   isLoading: boolean;
+  // };
 
-  // Debounced search handler
-  const debouncedSearch = useCallback(
-    debounce((query) => {
-      setSearchQuery(query);
-    }, 500),
-    []
-  );
+  const debouncedSearch = useCallback((query: string) => {
+    debounce(() => setSearchQuery(query), 500);
+  }, []);
 
   // Formik setup
   const formik = useFormik({
@@ -53,9 +51,9 @@ export default function ClientsHeader({ setIsModalOpen, isModalOpen }) {
   };
 
   // Clean up debounce on unmount
-  useEffect(() => {
-    return () => debouncedSearch.cancel();
-  }, [debouncedSearch]);
+  // useEffect(() => {
+  //   return () => debouncedSearch.cancel();
+  // }, [debouncedSearch]);
 
   return (
     <header className="space-y-4">
@@ -92,9 +90,9 @@ export default function ClientsHeader({ setIsModalOpen, isModalOpen }) {
                 value={formik.values.search}
                 aria-label={t("search.ariaLabel")}
               />
-              {(isSearching || formik.isSubmitting) && (
+              {/* {(isSearching || formik.isSubmitting) && (
                 <span className="loading loading-spinner loading-xs absolute right-3"></span>
-              )}
+              )} */}
             </div>
             {formik.touched.search && formik.errors.search && (
               <p className="text-destructive text-xs mt-1">
@@ -133,7 +131,7 @@ export default function ClientsHeader({ setIsModalOpen, isModalOpen }) {
       </div>
 
       {/* Search Status Indicator */}
-      {searchQuery && (
+      {/* {searchQuery && (
         <div className="text-sm text-muted-foreground">
           {isSearching
             ? t("search.status.searching")
@@ -141,7 +139,7 @@ export default function ClientsHeader({ setIsModalOpen, isModalOpen }) {
             ? t("search.status.resultsFound", { count: searchResults.length })
             : t("search.status.noResults")}
         </div>
-      )}
+      )} */}
     </header>
   );
 }

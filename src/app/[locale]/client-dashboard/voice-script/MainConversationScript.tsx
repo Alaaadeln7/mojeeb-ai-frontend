@@ -3,11 +3,10 @@
 import { MessageSquareText, Plus, Trash2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { Inquiry } from "@/types/chatbot";
 import ConversationScript from "./ConversationScript";
 import { Skeleton } from "@/components/ui/skeleton";
+import type { Inquiry } from "@/types/chatbot";
 
 interface MainConversationScriptProps {
   setIsModalOpen: (open: boolean) => void;
@@ -16,11 +15,12 @@ interface MainConversationScriptProps {
   chatbot: Inquiry[];
   getChatbotLoading: boolean;
   handleDeleteInquiry: (params: {
-    chatbotId: string,
-    inquiryId: string,
+    chatbotId: string;
+    inquiryId: string;
   }) => Promise<void>;
   deleteInquiryLoading: boolean;
   chatbotId: string;
+  title?: string;
 }
 
 export default function MainConversationScript({
@@ -32,15 +32,23 @@ export default function MainConversationScript({
   handleDeleteInquiry,
   deleteInquiryLoading,
   chatbotId,
+  title = "Conversation Scripts",
 }: MainConversationScriptProps) {
   const { theme } = useTheme();
-  const t = useTranslations("MainConversationScript");
 
   const handleAddClick = () => setIsModalOpen(true);
+
   const handleDeleteClick = async () => {
-    if (selectedChatbot) {
-      await handleDeleteInquiry({ chatbotId, inquiryId: selectedChatbot._id });
+    if (!selectedChatbot) return;
+
+    try {
+      await handleDeleteInquiry({
+        chatbotId,
+        inquiryId: selectedChatbot._id,
+      });
       setSelectedChatbot(null);
+    } catch (error) {
+      console.error("Error deleting inquiry:", error);
     }
   };
 
@@ -52,7 +60,7 @@ export default function MainConversationScript({
           <div className="p-2 bg-primary rounded-lg">
             <MessageSquareText className="text-primary-foreground size-5" />
           </div>
-          <h3 className="text-2xl font-semibold text-primary">{t("title")}</h3>
+          <h3 className="text-2xl font-semibold text-primary">{title}</h3>
         </div>
       </div>
 
@@ -69,6 +77,7 @@ export default function MainConversationScript({
             setSelectedChatbot={setSelectedChatbot}
             selectedChatbot={selectedChatbot}
             chatbot={chatbot}
+            getChatbotLoading={getChatbotLoading}
           />
         )}
       </Card>
@@ -77,7 +86,7 @@ export default function MainConversationScript({
       <div className="flex justify-between items-center flex-wrap gap-4">
         <Button onClick={handleAddClick} className="gap-2">
           <Plus className="size-5" />
-          {t("addButton")}
+          Add New Script
         </Button>
 
         {selectedChatbot && (
@@ -92,7 +101,7 @@ export default function MainConversationScript({
             ) : (
               <Trash2 className="size-5" />
             )}
-            {t("deleteButton")}
+            Delete Selected
           </Button>
         )}
       </div>

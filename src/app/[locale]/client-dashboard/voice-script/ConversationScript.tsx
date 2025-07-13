@@ -1,85 +1,172 @@
-import { Bot } from "lucide-react";
-import { useTranslations } from "next-intl";
+"use client";
+
+import { Bot, User, Play, Pause, Edit3, Copy, Trash2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-
-interface ChatbotItem {
-  _id: string;
-  question: string;
-  answer: string;
-}
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import type { Inquiry } from "@/types/chatbot";
 
 interface ConversationScriptProps {
-  selectedChatbot: string | string[];
-  setSelectedChatbot: (id: string) => void;
-  chatbot: ChatbotItem[];
-  getChatbotLoading: boolean;
+  selectedChatbot: Inquiry | null;
+  setSelectedChatbot: (inquiry: Inquiry) => void;
+  chatbot: Inquiry[];
+  getChatbotLoading?: boolean;
+  isPlaying?: string | null;
+  handlePlay?: (id: string) => void;
 }
 
 export default function ConversationScript({
   selectedChatbot,
   setSelectedChatbot,
   chatbot,
-  getChatbotLoading,
+  getChatbotLoading = false,
+  isPlaying,
+  handlePlay,
 }: ConversationScriptProps) {
-  const t = useTranslations("ConversationScript");
-
-  if (getChatbotLoading) return <ConversationScriptSkeleton />;
-  if (!chatbot) return null;
-  if (chatbot.length === 0) {
-    return (
-      <Card className="text-center p-8 rounded-xl">
-        <p className="text-muted-foreground">{t("noScriptsAvailable")}</p>
-      </Card>
-    );
+  if (getChatbotLoading) {
+    return <ConversationScriptSkeleton count={3} />;
   }
 
-  const isSelected = (id: string) => {
-    if (Array.isArray(selectedChatbot)) {
-      return selectedChatbot.includes(id);
-    }
-    return selectedChatbot === id;
-  };
+if (!chatbot || chatbot.length === 0) {
+  return (
+    <Card className="rounded-lg p-8 text-center border border-dashed">
+      <div className="flex flex-col items-center gap-4">
+        <div className="rounded-full bg-muted p-4">
+          <User className="h-6 w-6 text-muted-foreground" />
+        </div>
+        <div>
+          <h3 className="text-lg font-medium">No conversations yet</h3>
+          <p className="text-sm text-muted-foreground mt-2">
+            Start by creating your first conversation script
+          </p>
+        </div>
+        <Button variant="outline" className="mt-2">
+          Create Script
+        </Button>
+      </div>
+    </Card>
+  );
+}
+  const isSelected = (inquiry: Inquiry) => selectedChatbot?._id === inquiry._id;
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {chatbot.map((item) => (
         <Card
           key={item._id}
-          onClick={() => setSelectedChatbot(item._id)}
+          onClick={() => setSelectedChatbot(item)}
+          role="button"
+          tabIndex={0}
+          aria-label={`Select conversation: ${item.question}`}
           className={cn(
-            "p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer hover:border-primary/30",
-            isSelected(item._id)
-              ? "border-primary shadow-md bg-primary/5"
-              : "border-border"
+            "cursor-pointer rounded-lg border p-4 transition-all duration-200 hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+            isSelected(item) &&
+              "border-primary bg-primary/5 ring-2 ring-primary/20"
           )}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setSelectedChatbot(item);
+            }
+          }}
         >
-          {/* Customer Message */}
-          <div className="chat chat-end">
-            <div className="chat-image avatar">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-primary-foreground font-bold">
-                C
+          <div className="flex flex-col gap-4">
+            {/* Action Buttons */}
+            <div className="flex justify-end">
+              <div className="flex items-center space-x-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePlay?.(item._id);
+                  }}
+                  className="text-violet-600 hover:text-violet-700 hover:bg-violet-100"
+                >
+                  {isPlaying === item._id ? (
+                    <Pause className="w-4 h-4" />
+                  ) : (
+                    <Play className="w-4 h-4" />
+                  )}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-slate-600 hover:text-slate-700 hover:bg-slate-100"
+                >
+                  <Edit3 className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-slate-600 hover:text-slate-700 hover:bg-slate-100"
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-red-600 hover:text-red-700 hover:bg-red-100"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </Button>
               </div>
             </div>
-            <div className="chat-header text-sm font-medium">
-              {t("customer")}
-            </div>
-            <div className="chat-bubble bg-primary text-primary-foreground">
-              {item.question}
-            </div>
-          </div>
 
-          {/* AI Response */}
-          <div className="chat chat-start mt-3">
-            <div className="chat-image avatar">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center">
-                <Bot className="size-5 text-secondary-foreground" />
+            {/* Chat Messages */}
+            <div className="space-y-4">
+              {/* Customer Message */}
+              <div className="flex justify-end">
+                <div className="flex items-start space-x-3 max-w-[85%]">
+                  <div className="flex flex-col items-end">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl rounded-tr-md px-4 py-3 shadow-sm">
+                      <p className="text-sm leading-relaxed">{item.question}</p>
+                    </div>
+                    <div className="flex items-center space-x-2 mt-2">
+                      <span className="text-xs text-slate-500">Customer</span>
+                      <Avatar className="w-6 h-6">
+                        <AvatarFallback className="bg-blue-100 text-blue-700 text-xs">
+                          <User className="w-3 h-3" />
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="chat-header text-sm font-medium">{t("aiName")}</div>
-            <div className="chat-bubble bg-secondary text-secondary-foreground">
-              {item.answer}
+
+              {/* AI Response */}
+              <div className="flex justify-start">
+                <div className="flex items-start space-x-3 max-w-[85%]">
+                  <Avatar className="w-8 h-8 mt-1">
+                    <AvatarFallback className="bg-violet-100 text-violet-700">
+                      <Bot className="w-4 h-4" />
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col">
+                    <div className="bg-slate-100 text-slate-800 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
+                      <p className="text-sm leading-relaxed">{item.answer}</p>
+                    </div>
+                    <div className="flex items-center space-x-2 mt-2">
+                      <span className="text-xs text-slate-500">
+                        AI Assistant
+                      </span>
+                      {item.voice && (
+                        <>
+                          <span className="text-xs text-slate-400">•</span>
+                          <span className="text-xs text-slate-400">
+                            {item.voice}
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Card>
@@ -88,21 +175,40 @@ export default function ConversationScript({
   );
 }
 
-function ConversationScriptSkeleton() {
+interface ConversationScriptSkeletonProps {
+  count?: number;
+}
+
+function ConversationScriptSkeleton({
+  count = 3,
+}: ConversationScriptSkeletonProps) {
   return (
-    <div className="space-y-3">
-      {[...Array(3)].map((_, i) => (
-        <Card key={i} className="p-4 rounded-xl">
-          <div className="flex items-center space-x-4 mb-4">
-            <Skeleton className="h-10 w-10 rounded-full" />
-            <Skeleton className="h-4 w-[100px]" />
+    <div className="space-y-4">
+      {Array.from({ length: count }).map((_, i) => (
+        <Card key={i} className="rounded-lg p-4">
+          <div className="flex flex-col gap-3">
+            {/* Customer Skeleton - Right aligned */}
+            <div className="flex justify-end">
+              <div className="flex max-w-[90%] flex-col items-end space-y-2">
+                <div className="flex items-center gap-2">
+                  <Skeleton className="h-5 w-[80px] rounded-full" />
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                </div>
+                <Skeleton className="h-12 w-full rounded-xl rounded-tr-none" />
+              </div>
+            </div>
+
+            {/* AI Skeleton - Left aligned */}
+            <div className="flex justify-start">
+              <div className="flex max-w-[90%] flex-col items-start space-y-2">
+                <div className="flex items-center gap-2">
+                  <Skeleton className="h-8 w-8 rounded-full" />
+                  <Skeleton className="h-5 w-[80px] rounded-full" />
+                </div>
+                <Skeleton className="h-16 w-full rounded-xl rounded-tl-none" />
+              </div>
+            </div>
           </div>
-          <Skeleton className="h-16 w-full rounded-lg" />
-          <div className="flex items-center space-x-4 mt-6 mb-4">
-            <Skeleton className="h-10 w-10 rounded-full" />
-            <Skeleton className="h-4 w-[100px]" />
-          </div>
-          <Skeleton className="h-16 w-full rounded-lg" />
         </Card>
       ))}
     </div>

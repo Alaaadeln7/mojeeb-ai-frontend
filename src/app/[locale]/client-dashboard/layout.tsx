@@ -11,7 +11,6 @@ export default function ClientDashboardLayout({
   children: React.ReactNode;
 }) {
   const [isOpenProfile, setIsOpenProfile] = useState(false);
-  console.log(isOpenProfile);
   return (
     <>
       <SidebarProvider

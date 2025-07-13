@@ -140,11 +140,18 @@
       "date": "Date",
       "duration": "Duration",
       "ticket": "Ticket"
-    }
+    },
+    "viewAll": "View All",
+    "showing": "showing",
+    "of": "of",
+    "clients": "Clients"
   },
   "DataUsage": {
     "title": "Data Usage",
-    "usage": "{used}GB of {total}GB used"
+    "used": "Used",
+    "of": "of",
+    "limit": "Your Limit",
+    "usage": "{used} of {total} used"
   },
   "Dashboard": {
     "Header": {
@@ -260,24 +267,41 @@
     "ticketEscalationAlert": "Ticket Escalation Alert",
     "performanceReports": "Performance Reports"
   },
-  "ProfileModal": {
-    "title": "Client Profile",
-    "id": "ID",
-    "companyInfo": "Company Information",
-    "companyName": "Company Name",
-    "address": "Address",
-    "phone": "Phone",
-    "email": "Email",
-    "industry": "Industry",
-    "companySize": "Company Size",
-    "commercialRegister": "Commercial Register",
-    "taxId": "Tax ID",
-    "website": "Website",
-    "description": "Description",
-    "created": "Created",
-    "updated": "Updated",
-    "closeProfile": "Close Profile"
+
+  "Profile": {
+    "Modal": {
+      "title": "Client Profile",
+      "id": "ID",
+      "companyInfo": "Company Information",
+      "companyName": "Company Name",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "industry": "Industry",
+      "companySize": "Company Size",
+      "commercialRegister": "Commercial Register",
+      "taxId": "Tax ID",
+      "website": "Website",
+      "description": "Description",
+      "created": "Created",
+      "updated": "Updated",
+      "closeProfile": "Close Profile"
+    },
+    "Error": {
+      "dir": "ltr",
+      "title": "Profile Unavailable",
+      "description": "We couldn't load your profile information at this time.",
+      "possibleReasons": {
+        "title": "This might be because:",
+        "reason1": "You're not properly authenticated",
+        "reason2": "There's a network connection issue",
+        "reason3": "Our servers are temporarily unavailable"
+      },
+      "close": "Close",
+      "tryAgain": "Try Again"
+    }
   },
+
   "ThemeSettings": {
     "title": "Theme",
     "description": "Choose your theme",
@@ -711,6 +735,95 @@
       "addCallTask": "Add Call Task",
       "importCSV": "Import CSV"
     }
+  },
+  "UpgradePlan": {
+    "billing": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save"
+    },
+    "popular": "Most Popular",
+    "current": "Current Plan",
+    "currentButton": "Current Plan",
+    "chooseButton": "Choose {plan}",
+    "plans": {
+      "free": {
+        "description": "Access basic features with limited usage.",
+        "features": {
+          "current": "Current Plan",
+          "conversions": "10 conversions",
+          "characters": "4,000 characters in input code / conversion",
+          "support": "Email Support"
+        }
+      },
+      "pro": {
+        "description": "Unlock advanced tools for enhanced productivity.",
+        "features": {
+          "billing": "per month billed monthly",
+          "conversions": "Unlimited conversions",
+          "characters": "20,000 characters in input code / conversion",
+          "support": "Priority Email Support"
+        }
+      },
+      "premium": {
+        "description": "Get full access to all features for maximum flexibility.",
+        "features": {
+          "billing": "per month billed monthly",
+          "conversions": "Unlimited conversions",
+          "characters": "50,000 characters in input code / conversion",
+          "support": "Priority Email Support"
+        }
+      }
+    },
+    "commonFeatures": {
+      "title": "ALL PREMIUM PLANS INCLUDE:",
+      "streamed": "Faster Conversions with Streamed Responses",
+      "generation": "Code Generation Tool",
+      "explanation": "Code Explanation Tool",
+      "guarantee": "14-day Money Back Guarantee",
+      "cancel": "Cancel Anytime"
+    }
+  },
+  "Plans": {
+    "title": "Subscription Plans",
+    "description": "Choose the perfect plan for your needs",
+    "addNewPlan": "Add New Plan",
+    "createPlanTitle": "Create New Plan",
+    "createPlanDescription": "Fill out the form to create a new subscription plan",
+    "planTitle": "Plan Title",
+    "planTitlePlaceholder": "Enter plan title",
+    "size": "Size",
+    "sizePlaceholder": "Enter size",
+    "price": "Price",
+    "interval": "Billing Interval",
+    "selectInterval": "Select interval",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter plan description",
+    "features": "Features",
+    "feature": "Feature",
+    "addFeaturePlaceholder": "Add new feature",
+    "add": "Add",
+    "removeFeature": "Remove feature",
+    "cancel": "Cancel",
+    "createPlan": "Create Plan",
+    "popular": "POPULAR",
+    "/month": "/month",
+    "/year": "/year",
+    "titleRequired": "Title is required",
+    "titleMinLength": "Title must be at least 2 characters",
+    "descriptionRequired": "Description is required",
+    "descriptionMinLength": "Description must be at least 10 characters",
+    "intervalRequired": "Interval is required",
+    "intervalInvalid": "Interval must be either monthly or yearly",
+    "priceRequired": "Price is required",
+    "pricePositive": "Price must be positive",
+    "featureRequired": "Feature is required",
+    "minFeaturesRequired": "At least one feature is required",
+    "featuresRequired": "Features are required",
+    "createSuccess": "Plan created successfully",
+    "createError": "Failed to create plan",
+    "monthly": "Monthly",
+    "yearly": "Yearly"
   },
   "Home": {
     "dir": "ltr"

@@ -141,11 +141,18 @@
       "date": "التاريخ",
       "duration": "المدة",
       "ticket": "التذكرة"
-    }
+    },
+    "viewAll": "عرض الكل",
+    "showing": "عرض",
+    "of": "من",
+    "clients": "العملاء"
   },
   "DataUsage": {
     "title": "استخدام البيانات",
-    "usage": "تم استخدام {used} جيجا من {total} جيجا"
+    "used": "مستعمل",
+    "of": "من",
+    "limit": "حدك المسموح",
+    "usage": "{used} مستخدم من {total}"
   },
   "Dashboard": {
     "Header": {
@@ -200,7 +207,7 @@
   "ConversationScript": {
     "noScriptsAvailable": "لا توجد نصوص محادثة متاحة",
     "customer": "العميل",
-    "aiName": "معجب الذكاء الاصطناعي"
+    "aiName": "مُجيب AI"
   },
   "CallGreeting": {
     "title": "تحية المكالمة",
@@ -260,23 +267,39 @@
     "ticketEscalationAlert": "تنبيه تصعيد التذكرة",
     "performanceReports": "تقارير الأداء"
   },
-  "ProfileModal": {
-    "title": "ملف العميل",
-    "id": "المعرف",
-    "companyInfo": "معلومات الشركة",
-    "companyName": "اسم الشركة",
-    "address": "العنوان",
-    "phone": "الهاتف",
-    "email": "البريد الإلكتروني",
-    "industry": "الصناعة",
-    "companySize": "حجم الشركة",
-    "commercialRegister": "السجل التجاري",
-    "taxId": "الرقم الضريبي",
-    "website": "الموقع الإلكتروني",
-    "description": "الوصف",
-    "created": "تم الإنشاء",
-    "updated": "تم التحديث",
-    "closeProfile": "إغلاق الملف"
+
+  "Profile": {
+    "Modal": {
+      "title": "الملف الشخصي للعميل",
+      "id": "رقم التعريف",
+      "companyInfo": "معلومات الشركة",
+      "companyName": "اسم الشركة",
+      "address": "العنوان",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "industry": "المجال الصناعي",
+      "companySize": "حجم الشركة",
+      "commercialRegister": "السجل التجاري",
+      "taxId": "الرقم الضريبي",
+      "website": "الموقع الإلكتروني",
+      "description": "الوصف",
+      "created": "تاريخ الإنشاء",
+      "updated": "تاريخ التحديث",
+      "closeProfile": "إغلاق الملف الشخصي"
+    },
+    "Error": {
+      "dir": "rtl",
+      "title": "الملف الشخصي غير متاح",
+      "description": "لا يمكننا تحميل معلومات ملفك الشخصي في الوقت الحالي.",
+      "possibleReasons": {
+        "title": "قد يكون هذا بسبب:",
+        "reason1": "لم يتم التحقق من هويتك بشكل صحيح",
+        "reason2": "هناك مشكلة في اتصال الشبكة",
+        "reason3": "الخوادم لدينا غير متوفرة مؤقتًا"
+      },
+      "close": "إغلاق",
+      "tryAgain": "حاول مرة أخرى"
+    }
   },
   "ThemeSettings": {
     "title": "السمة",
@@ -710,6 +733,96 @@
       "addCallTask": "إضافة مهمة اتصال",
       "importCSV": "استيراد CSV"
     }
+  },
+
+  "UpgradePlan": {
+    "billing": {
+      "monthly": "شهري",
+      "yearly": "سنوي",
+      "save": "وفر"
+    },
+    "popular": "الأكثر شيوعًا",
+    "current": "خطة الحالية",
+    "currentButton": "الخطة الحالية",
+    "chooseButton": "اختر {plan}",
+    "plans": {
+      "free": {
+        "description": "الوصول إلى الميزات الأساسية مع استخدام محدود.",
+        "features": {
+          "current": "الخطة الحالية",
+          "conversions": "10 تحويلات",
+          "characters": "4000 حرف في كود الإدخال / تحويل",
+          "support": "دعم عبر البريد الإلكتروني"
+        }
+      },
+      "pro": {
+        "description": "فتح الأدوات المتقدمة لتعزيز الإنتاجية.",
+        "features": {
+          "billing": "شهريًا مدفوع شهريًا",
+          "conversions": "تحويلات غير محدودة",
+          "characters": "20,000 حرف في كود الإدخال / تحويل",
+          "support": "دعم أولوية عبر البريد الإلكتروني"
+        }
+      },
+      "premium": {
+        "description": "احصل على وصول كامل إلى جميع الميزات لأقصى مرونة.",
+        "features": {
+          "billing": "شهريًا مدفوع شهريًا",
+          "conversions": "تحويلات غير محدودة",
+          "characters": "50,000 حرف في كود الإدخال / تحويل",
+          "support": "دعم أولوية عبر البريد الإلكتروني"
+        }
+      }
+    },
+    "commonFeatures": {
+      "title": "جميع الخطط المميزة تشمل:",
+      "streamed": "تحويلات أسرع مع ردود متدفقة",
+      "generation": "أداة إنشاء الكود",
+      "explanation": "أداة شرح الكود",
+      "guarantee": "ضمان استرداد الأموال لمدة 14 يومًا",
+      "cancel": "إلغاء في أي وقت"
+    }
+  },
+  "Plans": {
+    "title": "الاشتراكات",
+    "description": "اختر الخطة المناسبة لاحتياجاتك",
+    "addNewPlan": "إضافة خطة جديدة",
+    "createPlanTitle": "إنشاء خطة جديدة",
+    "createPlanDescription": "املأ النموذج لإنشاء خطة اشتراك جديدة",
+    "planTitle": "عنوان الخطة",
+    "planTitlePlaceholder": "أدخل عنوان الخطة",
+    "size": "الحجم",
+    "sizePlaceholder": "أدخل الحجم",
+    "price": "السعر",
+    "interval": "فترة الفوترة",
+    "selectInterval": "اختر الفترة",
+    "description": "الوصف",
+    "descriptionPlaceholder": "أدخل وصف الخطة",
+    "features": "الميزات",
+    "feature": "ميزة",
+    "addFeaturePlaceholder": "إضافة ميزة جديدة",
+    "add": "إضافة",
+    "removeFeature": "إزالة الميزة",
+    "cancel": "إلغاء",
+    "createPlan": "إنشاء الخطة",
+    "popular": "الأكثر شيوعاً",
+    "/month": "/شهر",
+    "/year": "/سنة",
+    "titleRequired": "العنوان مطلوب",
+    "titleMinLength": "يجب أن يكون العنوان على الأقل حرفين",
+    "descriptionRequired": "الوصف مطلوب",
+    "descriptionMinLength": "يجب أن يكون الوصف على الأقل 10 أحرف",
+    "intervalRequired": "الفترة مطلوبة",
+    "intervalInvalid": "يجب أن تكون الفترة شهرية أو سنوية",
+    "priceRequired": "السعر مطلوب",
+    "pricePositive": "يجب أن يكون السعر موجباً",
+    "featureRequired": "الميزة مطلوبة",
+    "minFeaturesRequired": "مطلوب ميزة واحدة على الأقل",
+    "featuresRequired": "الميزات مطلوبة",
+    "createSuccess": "تم إنشاء الخطة بنجاح",
+    "createError": "فشل إنشاء الخطة",
+    "monthly": "شهري",
+    "yearly": "سنوي"
   },
   "Home": {
     "dir": "rtl"

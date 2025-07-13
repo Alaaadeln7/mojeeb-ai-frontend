@@ -1,5 +1,6 @@
 "use client";
 
+import { Info } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, ToasterProps, toast } from "sonner";
 import type { ToastT } from "sonner";
@@ -105,7 +106,10 @@ const showToast = (
     case "error":
       return toast.error(message, baseOptions);
     case "info":
-      return toast(message, { ...baseOptions, icon: "ℹ️" });
+      return toast(message, {
+        ...baseOptions,
+        icon: <Info className="size-5" />,
+      });
     case "warning":
       return toast.warning(message, baseOptions);
     case "loading":

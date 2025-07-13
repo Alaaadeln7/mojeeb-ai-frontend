@@ -1,6 +1,7 @@
+import { OverviewItem } from "@/types/analytics";
 import { Users, CreditCard, Activity } from "lucide-react";
 
-export const overviewData = [
+export const overviewData: OverviewItem[] = [
   {
     id: "users",
     title: "Total Users",

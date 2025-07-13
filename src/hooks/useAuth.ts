@@ -6,7 +6,6 @@ import {
   useGetAllUsersQuery,
   useLoginMutation,
   useLogoutMutation,
-  useRegisterMutation,
   useResetPasswordMutation,
   useVerifyOtpForgetPasswordMutation,
   useVerifyOtpMutation,
@@ -14,15 +13,15 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "@/components/ui/sonner";
+import { number } from "yup";
 
 interface UserData {
   // Define the shape of your user data here
-  [key: string]: any;
+  [key: string]: unknown;
 }
-
 interface Credentials {
   // Define the shape of your credentials here
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface ApiResponse {
@@ -81,8 +80,10 @@ export default function useAuth() {
     try {
       const response = await login(credentials).unwrap();
       console.log("Login successful:", response);
-      toast("Login Successful");
-      router.push("/");
+      if (response) {
+        toast("Login Successful");
+        router.push("/");
+      }
     } catch (error: unknown) {
       const apiError = error as ApiResponse;
       toast(
@@ -92,44 +93,61 @@ export default function useAuth() {
   };
 
   const handleVerifyOtp = async (credentials: Credentials): Promise<void> => {
-    const res = (await verifyOtp(credentials)) as ApiResponse;
-    console.log(res);
-    if (res?.data) {
-      toast("Registration successful");
-    }
+    await verifyOtp(credentials).unwrap();
+    toast("Registration successful");
   };
 
   const handleForgetPassword = async (
     credentials: Credentials
   ): Promise<void> => {
-    const res = (await forgetPassword(credentials)) as ApiResponse;
-    if (res?.data) {
+    try {
+      await forgetPassword(credentials).unwrap();
       toast("OTP sent to your email");
       router.push("/auth/reset-password");
+    } catch (error: unknown) {
+      const apiError = error as ApiResponse;
+      toast(
+        apiError?.error?.data?.message ||
+          "Failed to send OTP. Please try again."
+      );
     }
   };
 
   const handleVerifyOtpForgetPassword = async (
     credentials: Credentials
   ): Promise<void> => {
-    const res = (await verifyOtpForgetPassword(credentials)) as ApiResponse;
-    if (res?.data) {
+    try {
+      await verifyOtpForgetPassword(credentials).unwrap();
       toast("Verification successful");
+    } catch (error: unknown) {
+      const apiError = error as ApiResponse;
+      toast(
+        apiError?.error?.data?.message ||
+          "Verification failed. Please try again."
+      );
     }
   };
 
   const handleResetPassword = async (
     credentials: Credentials
   ): Promise<void> => {
-    const res = (await resetPassword(credentials)) as ApiResponse;
-    if (res?.data) {
-      toast("Password reset successfully");
-      router.push("/auth/login");
+    try {
+      const res = await resetPassword(credentials).unwrap();
+      if (res) {
+        toast("Password reset successfully");
+        router.push("/auth/login");
+      }
+    } catch (error: unknown) {
+      const apiError = error as ApiResponse;
+      toast(
+        apiError?.error?.data?.message ||
+          "Failed to reset password. Please try again."
+      );
     }
   };
 
   const handleLogout = async (): Promise<void> => {
-    const res = await logout();
+    await logout();
     toast("Logged out successfully");
     router.push("/");
   };

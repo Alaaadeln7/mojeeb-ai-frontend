@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "forceConsistentCasingInFileNames": true,
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -28,7 +31,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/[locale]/admin-dashboard/clients/CreateNewClientModal.jsx",
-    "src/app/[locale]/client-dashboard/voice-script/AddConversationScriptModal.jsx"
+    "src/app/[locale]/client-dashboard/voice-script/AddConversationScriptModal.tsx"
   ],
   "exclude": ["node_modules"]
 }

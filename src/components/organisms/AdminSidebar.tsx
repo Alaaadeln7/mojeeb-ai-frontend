@@ -24,6 +24,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import useAuth from "@/hooks/useAuth";
 
 // Define interfaces for type safety
 interface NavItem {
@@ -43,7 +44,17 @@ export function AppSidebar({ ...props }) {
   const t = useTranslations("AdminSidebar");
   const locale = useLocale();
   const isRTL = locale === "ar";
-
+  const { user, loading } = useAuth();
+  const [fullName, setFullName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  React.useEffect(() => {
+    if (loading) {
+      if (user?.role === "admin") {
+        setFullName(user?.fullName);
+        setEmail(user?.email);
+      }
+    }
+  }, [user, loading]);
   const navItems: NavItem[] = [
     {
       title: t("navItems.dashboard"),
@@ -83,9 +94,9 @@ export function AppSidebar({ ...props }) {
   ];
 
   const userData: UserData = {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: fullName,
+    email: email,
+    avatar: "",
     logoutText: t("user.logout"),
   };
 

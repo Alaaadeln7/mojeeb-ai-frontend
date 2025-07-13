@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function HomePage() {
-  const { user, logout, loading } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function HomePage() {
     }
   }, [user, router]);
 
-  const getRedirectPath = (role) => {
+  const getRedirectPath = (role: string) => {
     switch (role) {
       case "admin":
         return "/admin-dashboard";
@@ -41,7 +41,6 @@ export default function HomePage() {
       <LandingPageHeader />
       <Hero />
       <Features />
-      <Footer />
     </div>
   );
 }

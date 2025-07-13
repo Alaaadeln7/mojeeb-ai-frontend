@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye, EyeOff, Loader2, Lock, Mail, User, Users, X } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail, User, X } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 import { useFormik } from "formik";
 import { createUserSchema } from "@/utils/validation/authValidation";

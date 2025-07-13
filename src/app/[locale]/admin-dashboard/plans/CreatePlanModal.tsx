@@ -7,6 +7,8 @@ import { toast } from "sonner";
 import { intervalOptions } from "@/constants";
 import usePlans from "@/hooks/usePlans";
 import FormField from "./FormField";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 // Shadcn components
 import { Button } from "@/components/ui/button";
@@ -28,51 +30,47 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { useState } from "react";
 
 interface CreatePlanModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const initialValues = {
-  title: "",
-  description: "",
-  size: "",
-  price: "",
-  interval: "",
-  features: [""],
-};
-
-const validationSchema = Yup.object({
-  title: Yup.string()
-    .required("Title is required")
-    .min(2, "Title must be at least 2 characters"),
-  description: Yup.string()
-    .required("Description is required")
-    .min(10, "Description must be at least 10 characters"),
-  size: Yup.number(),
-  interval: Yup.string()
-    .required("Interval is required")
-    .oneOf(["monthly", "yearly"], "Interval must be either monthly or yearly"),
-  price: Yup.number()
-    .required("Price is required")
-    .min(0, "Price must be positive"),
-  features: Yup.array()
-    .of(Yup.string().required("Feature is required"))
-    .min(1, "At least one feature is required")
-    .required("Features are required"),
-});
-
 export default function CreatePlanModal({
   isOpen,
   onOpenChange,
 }: CreatePlanModalProps) {
+  const t = useTranslations("Plans");
   const { handleCreatePlan, createPlanLoading } = usePlans();
   const [featureInput, setFeatureInput] = useState("");
 
+  const validationSchema = Yup.object({
+    title: Yup.string()
+      .required(t("titleRequired"))
+      .min(2, t("titleMinLength")),
+    description: Yup.string()
+      .required(t("descriptionRequired"))
+      .min(10, t("descriptionMinLength")),
+    size: Yup.number(),
+    interval: Yup.string()
+      .required(t("intervalRequired"))
+      .oneOf(["monthly", "yearly"], t("intervalInvalid")),
+    price: Yup.number().required(t("priceRequired")).min(0, t("pricePositive")),
+    features: Yup.array()
+      .of(Yup.string().required(t("featureRequired")))
+      .min(1, t("minFeaturesRequired"))
+      .required(t("featuresRequired")),
+  });
+
   const formik = useFormik({
-    initialValues,
+    initialValues: {
+      title: "",
+      description: "",
+      size: "",
+      price: "",
+      interval: "",
+      features: [""],
+    },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
@@ -81,14 +79,15 @@ export default function CreatePlanModal({
         );
         await handleCreatePlan({
           ...values,
+          price: values.price,
           features: filteredFeatures,
         });
         resetForm();
         onOpenChange(false);
-        toast.success("Plan created successfully");
+        toast.success(t("createSuccess"));
       } catch (error) {
         console.error("Failed to create plan:", error);
-        toast.error(error.message || "Failed to create plan");
+        toast.error(error.message || t("createError"));
       }
     },
   });
@@ -113,32 +112,34 @@ export default function CreatePlanModal({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[625px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Create New Plan</DialogTitle>
-          <DialogDescription>
-            Fill out the form to create a new subscription plan
+          <DialogTitle className="text-primary">
+            {t("createPlanTitle")}
+          </DialogTitle>
+          <DialogDescription className="text-muted-foreground">
+            {t("createPlanDescription")}
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
-              label="Plan Title"
+              label={t("planTitle")}
               name="title"
               type="text"
-              placeholder="Plan title"
+              placeholder={t("planTitlePlaceholder")}
               formik={formik}
             />
 
             <FormField
-              label="Size"
+              label={t("size")}
               name="size"
               type="text"
-              placeholder="Enter size"
+              placeholder={t("sizePlaceholder")}
               formik={formik}
             />
 
             <FormField
-              label="Price"
+              label={t("price")}
               name="price"
               type="number"
               placeholder="0.00"
@@ -146,7 +147,9 @@ export default function CreatePlanModal({
             />
 
             <div className="md:col-span-2">
-              <Label htmlFor="interval">Interval</Label>
+              <Label htmlFor="interval" className="text-muted-foreground">
+                {t("interval")}
+              </Label>
               <Select
                 name="interval"
                 onValueChange={(value) =>
@@ -154,13 +157,13 @@ export default function CreatePlanModal({
                 }
                 value={formik.values.interval}
               >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select interval" />
+                <SelectTrigger className="bg-background">
+                  <SelectValue placeholder={t("selectInterval")} />
                 </SelectTrigger>
                 <SelectContent>
                   {intervalOptions.map((interval) => (
                     <SelectItem key={interval} value={interval}>
-                      {interval}
+                      {t(interval)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -173,15 +176,18 @@ export default function CreatePlanModal({
             </div>
 
             <div className="md:col-span-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description" className="text-muted-foreground">
+                {t("description")}
+              </Label>
               <Textarea
                 id="description"
                 name="description"
-                placeholder="Plan description"
+                placeholder={t("descriptionPlaceholder")}
                 rows={3}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.description}
+                className="bg-background"
               />
               {formik.touched.description && formik.errors.description && (
                 <p className="text-sm font-medium text-destructive mt-1">
@@ -191,8 +197,8 @@ export default function CreatePlanModal({
             </div>
 
             <div className="md:col-span-2">
-              <Label>Features</Label>
-              <Card className="p-4 space-y-2">
+              <Label className="text-muted-foreground">{t("features")}</Label>
+              <Card className="p-4 space-y-2 bg-background">
                 {formik.values.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <Input
@@ -203,7 +209,8 @@ export default function CreatePlanModal({
                         newFeatures[index] = e.target.value;
                         formik.setFieldValue("features", newFeatures);
                       }}
-                      placeholder={`Feature ${index + 1}`}
+                      placeholder={`${t("feature")} ${index + 1}`}
+                      className="bg-background"
                     />
                     <Button
                       type="button"
@@ -211,7 +218,7 @@ export default function CreatePlanModal({
                       size="icon"
                       className="h-9 w-9"
                       onClick={() => handleRemoveFeature(index)}
-                      aria-label="Remove feature"
+                      aria-label={t("removeFeature")}
                     >
                       <X className="h-4 w-4" />
                     </Button>
@@ -223,10 +230,15 @@ export default function CreatePlanModal({
                     type="text"
                     value={featureInput}
                     onChange={(e) => setFeatureInput(e.target.value)}
-                    placeholder="Add new feature"
+                    placeholder={t("addFeaturePlaceholder")}
+                    className="bg-background"
                   />
-                  <Button type="button" onClick={handleAddFeature}>
-                    Add
+                  <Button
+                    type="button"
+                    onClick={handleAddFeature}
+                    variant="outline"
+                  >
+                    {t("add")}
                   </Button>
                 </div>
               </Card>
@@ -239,13 +251,17 @@ export default function CreatePlanModal({
               variant="outline"
               onClick={() => onOpenChange(false)}
             >
-              Cancel
+              {t("cancel")}
             </Button>
-            <Button type="submit" disabled={createPlanLoading}>
+            <Button
+              type="submit"
+              disabled={createPlanLoading}
+              className="bg-primary hover:bg-primary/90"
+            >
               {createPlanLoading ? (
                 <span className="animate-spin">🌀</span>
               ) : (
-                "Create Plan"
+                t("createPlan")
               )}
             </Button>
           </div>
